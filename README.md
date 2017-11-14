@@ -4,10 +4,9 @@
 
 ## Team
 
-  - teamMember
-  - teamMember
-  - teamMember
-  - teamMember
+  - Ephraim Glick
+  - Vinoj Govinthasamy
+  - Rithnarin Kong
 
 ## Table of Contents
 
