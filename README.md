@@ -32,6 +32,10 @@
 
 ## Development
 
+Run Webpack in watch mode with command: npm run dev
+
+Run Webpack in production mode with command: npm run build
+
 ### Installing Dependencies
 
 From within the root directory:
