@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "pomander": "curl -s https://raw.githubusercontent.com/hackreactor-labs/pomander/master/bin/install | bash"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
