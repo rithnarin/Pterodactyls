@@ -6,7 +6,10 @@
   "engines": {
     "node": ">=6.4.0"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -p"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
