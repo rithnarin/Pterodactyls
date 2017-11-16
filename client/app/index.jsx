@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      postsSearch: [];
+      postsSearch: []
     };
     this.search = this.search.bind(this);
   }
@@ -21,8 +21,8 @@ class App extends React.Component {
         search: query
       }
     })
-    .then((response) => this.setState({ postsSearch: response }))
-    .then(() => console.log('Searched!'));
+      .then((response) => this.setState({ postsSearch: response }))
+      .then(() => console.log('Searched!'));
   }
 
   render () {
@@ -31,7 +31,7 @@ class App extends React.Component {
         <NavBar search={this.search} />
         <PostingPage />
       </div>
-    )
+    );
   }
 }
 
