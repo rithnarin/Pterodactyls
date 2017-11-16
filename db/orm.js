@@ -39,3 +39,5 @@ searchAllPosts = (query) => {
     ]
   });
 };
+
+module.exports.searchAllPosts = searchAllPosts;
