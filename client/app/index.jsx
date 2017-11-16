@@ -4,13 +4,14 @@ import {render} from 'react-dom';
 import axios from 'axios';
 import NavBar from './components/navbar.jsx';
 import PostingPage from './components/createPosts.jsx';
+import FullPost from './components/fullPost.jsx';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      postsSearch: [];
+      postsSearch: []
     };
     this.search = this.search.bind(this);
   }
@@ -21,8 +22,8 @@ class App extends React.Component {
         search: query
       }
     })
-    .then((response) => this.setState({ postsSearch: response }))
-    .then(() => console.log('Searched!'));
+      .then((response) => this.setState({ postsSearch: response }))
+      .then(() => console.log('Searched!'));
   }
 
   render () {
@@ -31,7 +32,7 @@ class App extends React.Component {
         <NavBar search={this.search} />
         <PostingPage />
       </div>
-    )
+    );
   }
 }
 
