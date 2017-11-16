@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
-const db = require('../db/');
+const db = require('../db');
 let app = express();
 
 app.use(express.static(__dirname + '/../client'));
