@@ -32,7 +32,7 @@ for (var i = 0; i < 30; i++) {
 // populate locations table
 for (var i = 0; i < 30; i++) {
   let locationEntry = { 
-    location: faker.address.city() + ' ' + faker.address.country() 
+    location: faker.address.city() + ', ' + faker.address.country() 
   };
   connection.query('INSERT INTO Locations SET ?', locationEntry,
     (err, results, fields) => {
