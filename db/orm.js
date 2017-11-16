@@ -1,8 +1,12 @@
 const Sequelize = require('sequelize');
-let db = new Sequelize('database', 'username', 'password', {
-  host: process.env.SEQUELIZE_HOST,
-  dialect: 'mysql'
-});
+let db = new Sequelize('kuyikSQL', 
+  process.env.SEQUELIZE_USERNAME, 
+  process.env.SEQUELIZE_PASSWORD, 
+  {
+    host: process.env.SEQUELIZE_HOST,
+    dialect: 'mysql'
+  }
+);
 // the constructor takes a database name, username, and password
 // placeholders for now
 
