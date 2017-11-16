@@ -1,10 +1,16 @@
 const Sequelize = require('sequelize');
-let db = new Sequelize('database', 'username', 'password');
+let db = new Sequelize('database', 'username', 'password', {
+  host: process.env.SEQUELIZE_HOST,
+  dialect: 'mysql'
+});
 // the constructor takes a database name, username, and password
 // placeholders for now
 
 const Posts = db.define('Posts', {
-  id: Sequelize.INTEGER,
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   id_users: Sequelize.INTEGER,
   title: Sequelize.STRING,
   subtitle: Sequelize.STRING,
@@ -14,12 +20,18 @@ const Posts = db.define('Posts', {
 });
 
 const Locations = db.define('Locations', {
-  id: Sequelize.INTEGER,
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   location: Sequelize.STRING
 });
 
 const Users = db.define('Users', {
-  id: Sequelize.INTEGER,
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   username: Sequelize.STRING,
   email: Sequelize.STRING,
   about_me: Sequelize.STRING,
@@ -27,7 +39,10 @@ const Users = db.define('Users', {
 });
 
 const Sessions = db.define('Sessions', {
-  id: Sequelize.INTEGER,
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   id_users: Sequelize.INTEGER,
   hash: Sequelize.STRING
 });
