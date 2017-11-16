@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import axios from 'axios';
 
 const devStyle = {
   border: "1px solid black",
@@ -40,15 +40,7 @@ class PostingPage extends React.Component {
       subtitle: this.state.subtitle,
       main: this.state.main
     };
-    $.ajax({
-      url: '/posts',
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify(newPost),
-      processData: false,
-      success: res => console.log('Posted successfully'),
-      error: err => console.log(err)
-    });
+    axios.post('/posts', newPost);
   }
 
   render() {
