@@ -3,12 +3,12 @@
 ## General Workflow
 
 1. Fork the repo
-1. Cut a namespaced feature branch from master
-1. Make commits to your feature branch. Prefix each commit like so:
-1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a pull request directly to master. Include a description of your changes.
-1. Your pull request will be reviewed by another maintainer. The point of code reviews is to help keep the codebase clean and of high quality and, equally as important, to help you grow as a programmer. If your code reviewer requests you make a change you don't understand, ask them why.
-1. Fix any issues raised by your code reviwer, and push your fixes as a single new commit.
-1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
+2. Cut a namespaced feature branch from master
+3. Make commits to your feature branch. Prefix each commit like so:
+4. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a pull request directly to master. Include a description of your changes.
+5. Your pull request will be reviewed by another maintainer. The point of code reviews is to help keep the codebase clean and of high quality and, equally as important, to help you grow as a programmer. If your code reviewer requests you make a change you don't understand, ask them why.
+6. Fix any issues raised by your code reviwer, and push your fixes as a single new commit.
+7. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
 
 ## Detailed Workflow
 
@@ -19,6 +19,23 @@ Use github’s interface to make a fork of the repo, then add that repo as an up
 ```
 git remote add upstream https://github.com/organization/<NAME_OF_REPO>.git
 ```
+
+### Set up the repo
+
+0. Make sure your .env file is set up with these below. Check sequelize, too.
+      PORT=5000
+      SQL_HOST=localhost
+      SQL_USERNAME=         <--- fill your username in
+      SQL_PASSWORD=         <--- fill your password in
+      MONGODB_URI=mongodb://localhost/kuyikMongo
+1. Run npm install
+2. From command line, start mongo by entering: mongod
+3. From command line, start mySQL by entering: mysql -u student -p
+    or on your personal computer: mysql -u root -p
+4. From mysql prompt, enter: use database kuyikSQL
+5. From command line, run: mysql -u student < db/schema.sql
+    or on your personal computer: mysql -u root < db/schema.sql
+6. Run npm start
 
 ### Cut a namespaced feature branch from master
 
