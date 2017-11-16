@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-let db = new Sequelize();
+let db = new Sequelize('database', 'username', 'password');
+// the constructor takes a database name, username, and password
+// placeholders for now
 
 const Posts = db.define('Posts', {
   id: Sequelize.INTEGER,
