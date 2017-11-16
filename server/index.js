@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const db = require('../db/orm.js');
 const mysql = require('../db/mysql.js');
+const mongo = require('../db/mongo.js');
 
 
 let app = express();
@@ -11,6 +12,11 @@ let app = express();
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/home', (req, res) => {
+  db.searchAllPosts()
+    .then(posts => res.send(posts));
+});
 
 app.get('/search', (req, res) => {
   db.searchAllPosts(req.query.search)
