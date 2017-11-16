@@ -2,7 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
-const db = require('../db');
+const db = require('../db/orm.js');
+const mysql = require('../db/mysql.js');
+
+
 let app = express();
 
 app.use(express.static(__dirname + '/../client'));
@@ -11,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/search', (req, res) => {
   db.searchAllPosts(req.query.search)
-  .then(posts => res.send(posts));
+    .then(posts => res.send(posts));
 });
 
 app.listen(process.env.PORT, () => {
