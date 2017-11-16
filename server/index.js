@@ -3,6 +3,7 @@ const express = require('express');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const db = require('../db/orm.js');
+const mysql = require('../db/mysql.js');
 
 
 let app = express();
