@@ -12,6 +12,11 @@ app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/home', (req, res) => {
+  db.searchAllPosts()
+    .then(posts => res.send(posts));
+});
+
 app.get('/search', (req, res) => {
   db.searchAllPosts(req.query.search)
     .then(posts => res.send(posts));

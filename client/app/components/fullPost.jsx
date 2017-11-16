@@ -2,15 +2,15 @@ import React from 'react';
 
 const FullPost = (props) => (
   <div >
-    <h1> {this.props.fullPost.title} </h1>
+    <h1> {props.fullPost.title} </h1>
     <br/>
-    <h1> Author: {this.props.fullPost.author} </h1>
+    <h1> Author: {props.fullPost.author} </h1>
     <br/>
-    <span> Location: {this.props.fullPost.location} </span>
+    <span> Location: {props.fullPost.location} </span>
     <br/>
-    <span> Subtitle: {this.props.fullPost.subtitle} </span>
+    <span> Subtitle: {props.fullPost.subtitle} </span>
     <br/>
-    <span> {this.props.fullPost.main} </span>
+    <span> {props.fullPost.main} </span>
     <br/>
     <span> IMAGES HERE</span>
   </div>
