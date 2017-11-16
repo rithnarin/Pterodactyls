@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
+import PostingPage from './components/createPosts.jsx';
 import axios from 'axios';
-import NavBar from 'navbar';
+import NavBar from './components/navbar.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,9 +24,13 @@ class App extends React.Component {
   }
 
   render () {
-    <div>
-      <NavBar search={this.search} />
-    </div>
+    return
+    (
+      <div>
+        <NavBar search={this.search} />
+        <PostingPage />
+      </div>
+    );
   }
 }
 
