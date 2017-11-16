@@ -51,6 +51,12 @@ const Sessions = db.define('Sessions', {
   hash: Sequelize.STRING
 });
 
+searchFrontPosts = () => {
+  return Posts.findAll();
+  // TO DO
+  // Add limit and filter once decided, such as top 20 most recent posts or top 10 liked posts
+};
+
 searchAllPosts = (query) => {
   return Posts.findAll({
     include: [
@@ -60,3 +66,4 @@ searchAllPosts = (query) => {
 };
 
 module.exports.searchAllPosts = searchAllPosts;
+module.exports.searchFrontPosts = searchFrontPosts;
