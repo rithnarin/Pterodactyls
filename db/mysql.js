@@ -13,8 +13,8 @@ connection.connect();
 // todo: instead use npm grunt-ipsum!!!
 
 const makeRandomString = function(n) {
-  var text = "";
-  var possible = "abcdefghijklmnopqrstuvwxyz";
+  var text = '';
+  var possible = 'abcdefghijklmnopqrstuvwxyz';
   for (var i = 0; i < n; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
@@ -22,25 +22,25 @@ const makeRandomString = function(n) {
 };
 
 const makeRandomTitle = function() {
-  var text = "";
+  var text = '';
   for (var i = 0; i < 6; i++) {
-    text += makeRandomString(Math.floor(Math.random() * 8)) + " ";
+    text += makeRandomString(Math.floor(Math.random() * 8)) + ' ';
   }
   return text;
 };
 
 const makeRandomSubtitle = function() {
-  var text = "";
+  var text = '';
   for (var i = 0; i < 12; i++) {
-    text += makeRandomString(Math.floor(Math.random() * 8)) + " ";
+    text += makeRandomString(Math.floor(Math.random() * 8)) + ' ';
   }
   return text;
 };
 
 const makeRandomText = function(n) {
-  var text = "";
+  var text = '';
   for (var i = 0; i < n; i++) {
-    text += makeRandomString(Math.floor(Math.random() * 8)) + " ";
+    text += makeRandomString(Math.floor(Math.random() * 8)) + ' ';
   }
   return text;
 };
