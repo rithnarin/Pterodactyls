@@ -1,7 +1,5 @@
 import React from 'react';
 
-//onKeyPress should invoke search function
-
 
 class NavBar extends React.Component {
   constructor(props) {

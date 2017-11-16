@@ -4,6 +4,7 @@ import {render} from 'react-dom';
 import axios from 'axios';
 import NavBar from './components/navbar.jsx';
 import PostingPage from './components/createPosts.jsx';
+import FullPost from './components/fullPost.jsx';
 
 
 class App extends React.Component {
