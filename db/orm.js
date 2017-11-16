@@ -31,3 +31,13 @@ const Sessions = db.define('Sessions', {
   id_users: Sequelize.INTEGER,
   hash: Sequelize.STRING
 });
+
+searchAllPosts = (query) => {
+  return Posts.findAll({
+    include: [
+      { title: query, required: true }
+    ]
+  });
+};
+
+module.exports.searchAllPosts = searchAllPosts;
