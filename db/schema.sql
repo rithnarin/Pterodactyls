@@ -1,3 +1,15 @@
+-- execute this file (on pairing station) by running:
+--       mysql -u student < db/schema.sql
+-- on your machine, replace 'student' with your own username
+-- created npm script for this
+
+
+DROP DATABASE IF EXISTS kuyikSQL;
+
+CREATE DATABASE kuyikSQL;
+
+USE kuyikSQL;
+
 -- ---
 -- Globals
 -- ---
@@ -13,12 +25,12 @@
 DROP TABLE IF EXISTS `Posts`;
     
 CREATE TABLE `Posts` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `id_users` INTEGER NULL DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `id_users` INTEGER NULL,
   `title` VARCHAR(50) NOT NULL DEFAULT '''',
   `subtitle` VARCHAR(75) NOT NULL DEFAULT '''',
   `pics` VARCHAR(255) NULL,
-  `id_mongo_text` INTEGER NULL DEFAULT NULL,
+  `id_mongo_text` INTEGER NULL UNIQUE DEFAULT NULL,
   `id_locations` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -31,8 +43,8 @@ CREATE TABLE `Posts` (
 DROP TABLE IF EXISTS `Locations`;
     
 CREATE TABLE `Locations` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `location` VARCHAR(50) NULL DEFAULT '''',
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `location` VARCHAR(50) NULL UNIQUE DEFAULT '''',
   PRIMARY KEY (`id`)
 );
 
@@ -44,9 +56,9 @@ CREATE TABLE `Locations` (
 DROP TABLE IF EXISTS `Users`;
     
 CREATE TABLE `Users` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `username` VARCHAR(25) NOT NULL DEFAULT '''',
-  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(25) NOT NULL UNIQUE DEFAULT '''',
+  `email` VARCHAR(50) NULL UNIQUE DEFAULT NULL,
   `about_me` VARCHAR(250) NULL DEFAULT NULL,
   `pic` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -60,8 +72,8 @@ CREATE TABLE `Users` (
 DROP TABLE IF EXISTS `Sessions`;
     
 CREATE TABLE `Sessions` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `id_users` INTEGER NOT NULL DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `id_users` INTEGER NOT NULL,
   `hash` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
