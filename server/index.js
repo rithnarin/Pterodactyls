@@ -3,9 +3,9 @@ const express = require('express');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const db = require('../db/orm.js');
-const mysql = require('../db/mysql.js');
+// const mysql = require('../db/mysql.js');
 const mongo = require('../db/mongo.js');
-
+const fakeData = require('../db/saveFakeData.js');
 
 let app = express();
 
