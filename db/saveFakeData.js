@@ -9,43 +9,28 @@ let mongoIds = [];
 
 orm.db.sync({force: true})
   .then(() => {
-
-    mongo.Post.count({})
-      .then(count => {
-        if (count >= 50) { 
-          throw count; 
-        } else { 
-          return mongo.Post.remove({}); 
+    mongo.Post.remove({})
+      .then(() => {
+        let fakePosts = [];
+        for (let i = 0; i < 50; i++) {
+          let fakePost = {id: i, text: faker.lorem.paragraphs(5)};
+          fakePost = new mongo.Post(fakePost);
+          fakePosts.push(fakePost.save());
         }
+        return Promise.all(fakePosts);
       })
-      .then(() => {
-        let data = makeFakePosts(50);
-        return mongo.Post.create(data);
+      .then(saved => {
+        return mongo.Post.find({}, {'id': 1, '_id': 0})
+          .lean();
       })
-      .then(() => {
-        return mongo.Post.find({})
-          .select('_id');
-      })
-      .then(ids => {
-        mongoIds = ids;
-        saveSQLData();
+      .then(idRecords => {
+        idRecords.forEach(rec => mongoIds.push(rec.id));
+        Promise.resolve(saveSQLData());
       })
       .catch(err => {
-        if (typeof err === 'number') { 
-          console.log('Data already in mongo!'); 
-        } else {
-          console.log('Mongo error! (At saveFakeData)');
-        }
-      });      
+        console.log('Error!', err);
+      });
 
-    function makeFakePosts(n) {
-      let posts = [];
-      for (var i = 0; i < n; i++) {
-        let text = faker.lorem.paragraphs(5);
-        let post = new mongo.Post({ text });
-        posts.push(post);
-      }
-    }
 
     function saveSQLData() {
       // populate users table
