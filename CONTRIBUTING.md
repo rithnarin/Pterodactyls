@@ -30,12 +30,13 @@ git remote add upstream https://github.com/organization/<NAME_OF_REPO>.git
       MONGODB_URI=mongodb://localhost/kuyikMongo
 1. Run npm install
 2. From command line, start mongo by entering: mongod
-3. From command line, start mySQL by entering: mysql -u student -p
+3. From command line, start mySQL by entering: mysql.server start
+4. From command line, access mySQL by entering: mysql -u student -p
     or on your personal computer: mysql -u root -p
-4. From mysql prompt, enter: use database kuyikSQL
-5. From command line, run: mysql -u student < db/schema.sql
+5. From command line (not in mysql), run: mysql -u student < db/schema.sql
     or on your personal computer: mysql -u root < db/schema.sql
-6. Run npm start
+6. From mysql prompt, enter: use database kuyikSQL
+7. Run npm start
 
 ### Cut a namespaced feature branch from master
 
