@@ -10,7 +10,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "pomander": "curl -s https://raw.githubusercontent.com/hackreactor-labs/pomander/master/bin/install | bash",
-    "start": "node server/index.js"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
