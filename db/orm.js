@@ -29,7 +29,7 @@ const Posts = db.define('Posts', {
   title: Sequelize.STRING,
   subtitle: Sequelize.STRING,
   pics: Sequelize.STRING,
-  id_mongo_text: Sequelize.INTEGER, // eslint-disable-line camelcase
+  id_mongo_text: Sequelize.STRING, // eslint-disable-line camelcase
   id_locations: Sequelize.INTEGER, // eslint-disable-line camelcase
 });
 
@@ -76,9 +76,9 @@ searchFrontPosts = () => {
 
 searchAllPosts = (query) => {
   return Posts.findAll({
-    include: [
-      { title: query, required: true }
-    ]
+    // include: [
+    //   { title: query, required: true }
+    // ]
   });
 };
 
