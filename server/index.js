@@ -3,9 +3,10 @@ const express = require('express');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const db = require('../db/orm.js');
-const mysql = require('../db/mysql.js');
 const mongo = require('../db/mongo.js');
 
+// comment out if db already populated
+const fakeData = require('../db/saveFakeData.js'); 
 
 let app = express();
 
@@ -14,9 +15,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/home', (req, res) => {
+<<<<<<< HEAD
   db.searchFrontPosts()
     .then((res) => console.log(res))
     .then(posts => res.send(posts));
+=======
+  let sqlPosts = []; // need this external variable!!
+  db.searchAllPosts() // get posts from sql
+    .then(results => {
+      sqlPosts = results; // set external variable
+      return db.getMongoTextsForSqlResults(sqlPosts);
+    })  
+    .then(results => { // use external variable --v
+      res.send(db.addMongoTextsToSqlResults(sqlPosts, results));
+    })
+    .catch(err => console.log('GET /home error:', err));
+>>>>>>> 47a3cb04e66fb3f2bca653ebea629c567edaf2db
 });
 
 app.get('/search', (req, res) => {
@@ -25,5 +39,5 @@ app.get('/search', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log('LISTENING ON PORT 5000 !!!');
+  console.log(`Listening on port ${process.env.PORT}...`);
 });
