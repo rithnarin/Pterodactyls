@@ -33,10 +33,10 @@ orm.db.sync()
   });
 
 // save new fake records; using func declaration to hoist
-function saveSQLData() { 
+function saveSQLData() {
   // populate users table
   for (var i = 0; i < 30; i++) {
-    let userEntry = { 
+    let userEntry = {
       username: faker.internet.userName(),
       email: faker.internet.email(),
       about_me: faker.lorem.paragraph(), // eslint-disable-line camelcase
@@ -46,15 +46,15 @@ function saveSQLData() {
   }
   // populate locations table
   for (var i = 0; i < 30; i++) {
-    let locationEntry = { 
-      location: faker.address.city() + ', ' + faker.address.country() 
+    let locationEntry = {
+      location: faker.address.city() + ', ' + faker.address.country()
     };
     orm.Locations.create(locationEntry);
   }
   // populate posts table
   for (var i = 0; i < 15; i++) {
     let mongoId = mongoIds[i];
-    let postsEntry = { 
+    let postsEntry = {
       id_users: Math.floor(Math.random() * 30), // eslint-disable-line camelcase
       title: faker.lorem.words(6),
       subtitle: faker.lorem.sentence(),

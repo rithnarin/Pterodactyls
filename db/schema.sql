@@ -17,83 +17,13 @@ USE kuyikSQL;
 -- -- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- -- SET FOREIGN_KEY_CHECKS=0;
 
-<<<<<<< HEAD
--- ---
--- Table 'Posts'
---
--- ---
-
-DROP TABLE IF EXISTS `Posts`;
-
-CREATE TABLE `Posts` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `id_users` INTEGER NULL,
-  `title` VARCHAR(255) NOT NULL DEFAULT '''',
-  `subtitle` VARCHAR(255) NOT NULL DEFAULT '''',
-  `pics` VARCHAR(255) NULL,
-  `id_mongo_text` VARCHAR(255) NULL UNIQUE DEFAULT NULL,
-  `id_locations` INTEGER NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Table 'Locations'
---
--- ---
-
-DROP TABLE IF EXISTS `Locations`;
-
-CREATE TABLE `Locations` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `location` VARCHAR(255) NULL UNIQUE DEFAULT '''',
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Table 'Users'
---
--- ---
-
-DROP TABLE IF EXISTS `Users`;
-
-CREATE TABLE `Users` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(255) NOT NULL UNIQUE DEFAULT '''',
-  `email` VARCHAR(255) NULL UNIQUE DEFAULT NULL,
-  `about_me` VARCHAR(510) NULL DEFAULT NULL,
-  `pic` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Table 'Sessions'
---
--- ---
-
-DROP TABLE IF EXISTS `Sessions`;
-
-CREATE TABLE `Sessions` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `id_users` INTEGER NOT NULL,
-  `hash` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
--- ---
--- Foreign Keys
--- ---
-
-ALTER TABLE `Posts` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
-ALTER TABLE `Posts` ADD FOREIGN KEY (id_locations) REFERENCES `Locations` (`id`);
-ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
-=======
 -- -- ---
 -- -- Table 'Posts'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Posts`;
-    
+
 -- CREATE TABLE `Posts` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `id_users` INTEGER NULL,
@@ -107,11 +37,11 @@ ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
 
 -- -- ---
 -- -- Table 'Locations'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Locations`;
-    
+
 -- CREATE TABLE `Locations` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `location` VARCHAR(255) NULL UNIQUE DEFAULT '''',
@@ -120,11 +50,11 @@ ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
 
 -- -- ---
 -- -- Table 'Users'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Users`;
-    
+
 -- CREATE TABLE `Users` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `username` VARCHAR(255) NOT NULL UNIQUE DEFAULT '''',
@@ -136,11 +66,11 @@ ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
 
 -- -- ---
 -- -- Table 'Sessions'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Sessions`;
-    
+
 -- CREATE TABLE `Sessions` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `id_users` INTEGER NOT NULL,
@@ -149,13 +79,12 @@ ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
 -- );
 
 -- -- ---
--- -- Foreign Keys 
+-- -- Foreign Keys
 -- -- ---
 
 -- ALTER TABLE `Posts` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
 -- ALTER TABLE `Posts` ADD FOREIGN KEY (id_locations) REFERENCES `Locations` (`id`);
 -- ALTER TABLE `Sessions` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);
->>>>>>> 47a3cb04e66fb3f2bca653ebea629c567edaf2db
 
 -- ---
 -- Table Properties
