@@ -14,7 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/home', (req, res) => {
-  db.searchAllPosts()
+  db.searchFrontPosts()
+    .then((res) => console.log(res))
     .then(posts => res.send(posts));
 });
 

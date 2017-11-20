@@ -16,17 +16,17 @@ class App extends React.Component {
     };
     this.search = this.search.bind(this);
   }
-  
+
   componentWillMount() {
     this.loadHome();
   }
-  
+
   loadHome() {
     axios.get('/home')
       .then((response) => this.setState({ frontPosts: response }))
       .then(() => console.log('Home page loaded!'));
   }
-  
+
   search(query) {
     axios.get('/search', {
       params: {
@@ -34,7 +34,8 @@ class App extends React.Component {
       }
     })
       .then((response) => this.setState({ frontPosts: response }))
-      .then(() => console.log('Searched!'));
+      .then(() => console.log('Searched!'))
+      .catch((err) => console.log(err));
   }
 
   render () {
@@ -42,7 +43,7 @@ class App extends React.Component {
       <div>
         <NavBar search={this.search}/>
         <br/>
-        {this.state.frontPosts.map(item => <postPreview post={item}/>)}
+        {this.state.frontPosts.map(item => <postPreview post={item} />)}
         <PostingPage />
       </div>
     );

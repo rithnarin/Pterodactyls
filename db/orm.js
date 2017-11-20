@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
-let db = new Sequelize('kuyikSQL', 
-  process.env.SEQUELIZE_USERNAME, 
-  process.env.SEQUELIZE_PASSWORD, 
+let db = new Sequelize('kuyikSQL',
+  process.env.SQL_USERNAME,
+  process.env.SEQUELIZE_PASSWORD,
   {
-    host: process.env.SEQUELIZE_HOST,
+    host: process.env.SQL_HOST,
     dialect: 'mysql'
   }
 );
