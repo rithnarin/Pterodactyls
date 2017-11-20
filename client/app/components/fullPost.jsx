@@ -10,7 +10,7 @@ const FullPost = (props) => (
     <br/>
     <span> Subtitle: {props.fullPost.subtitle} </span>
     <br/>
-    <span> {props.fullPost.main} </span>
+    <span> {props.fullPost.text} </span>
     <br/>
     <span> IMAGES HERE</span>
   </div>
