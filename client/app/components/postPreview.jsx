@@ -1,20 +1,26 @@
 import React from 'react';
 
-const postPreview = (props) => (
-  <div >
+var devStyle = {
+  border: '1px dotted blue',
+  padding: '10px',
+  margin: '20px'
+};
+
+const PostPreview = (props) => (
+  <div style={devStyle} >
     <h3> {props.post.title} </h3>
-    <br/>
-    <h3> Author: {props.post.author} </h3>
-    <br/>
+    <hr/>
+    <h4> Author: {props.post.author} </h4>
+    <hr/>
     <span> Location: {props.post.location} </span>
-    <br/>
+    <hr/>
     <span> Subtitle: {props.post.subtitle} </span>
-    <br/>
-    <span> {props.post.main.substring(0, 50)} </span>
-    <br/>
+    <hr/>
+    <span> Text: {props.post.text.substring(0, 200)}&nbsp;&nbsp;[...] </span>
+    <hr/>
     <span> Add images as background </span>
   </div>
 
 );
 
-export default postPreview;
+export default PostPreview;
