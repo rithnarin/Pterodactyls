@@ -3,85 +3,64 @@ const faker = require('faker');
 var orm = require('./orm.js');
 var mongo = require('./mongo.js');
 
-/* generate data for the sql database user faker */
+/* generate data for the sql database using faker */
 
 let mongoIds = [];
 
-orm.db.sync({force: true})
+orm.db.sync()
   .then(() => {
-
-    mongo.Post.count({})
-      .then(count => {
-        if (count >= 50) { 
-          throw count; 
-        } else { 
-          return mongo.Post.remove({}); 
-        }
-      })
-      .then(() => {
-        let data = makeFakePosts(50);
-        return mongo.Post.create(data);
-      })
-      .then(() => {
-        return mongo.Post.find({})
-          .select('_id');
-      })
-      .then(ids => {
-        mongoIds = ids;
-        saveSQLData();
-      })
-      .catch(err => {
-        if (typeof err === 'number') { 
-          console.log('Data already in mongo!'); 
-        } else {
-          console.log('Mongo error! (At saveFakeData)');
-        }
-      });      
-
-    function makeFakePosts(n) {
-      let posts = [];
-      for (var i = 0; i < n; i++) {
-        let text = faker.lorem.paragraphs(5);
-        let post = new mongo.Post({ text });
-        posts.push(post);
-      }
+    return mongo.Post.remove({}).exec();
+  })
+  .then(() => {
+    let fakePosts = [];
+    for (let i = 0; i < 50; i++) {
+      let fakePost = {id: i, text: faker.lorem.paragraphs(5)};
+      fakePost = new mongo.Post(fakePost);
+      fakePosts.push(fakePost.save());
     }
-
-    function saveSQLData() {
-      // populate users table
-      for (var i = 0; i < 30; i++) {
-        let userEntry = { 
-          username: faker.internet.userName(),
-          email: faker.internet.email(),
-          about_me: faker.lorem.paragraph(), // eslint-disable-line camelcase
-          pic: faker.image.avatar()
-        };
-        orm.Users.create(userEntry);
-      }
-      // populate locations table
-      for (var i = 0; i < 30; i++) {
-        let locationEntry = { 
-          location: faker.address.city() + ', ' + faker.address.country() 
-        };
-        orm.Locations.create(locationEntry);
-      }
-      // populate posts table
-      for (var i = 0; i < 15; i++) {
-        let mongoId = mongoIds[i];
-        let postsEntry = { 
-          id_users: Math.floor(Math.random() * 30), // eslint-disable-line camelcase
-          title: faker.lorem.words(6),
-          subtitle: faker.lorem.sentence(),
-          id_mongo_text: mongoId, // eslint-disable-line camelcase
-          id_locations: Math.floor(Math.random() * 30) // eslint-disable-line camelcase
-        };
-        orm.Posts.create(postsEntry);
-      }
-    }
-
+    return Promise.all(fakePosts);
+  })
+  .then(saved => {
+    return mongo.Post.find({}, {'id': 1, '_id': 0})
+      .lean();
+  })
+  .then(idRecords => {
+    idRecords.forEach(rec => mongoIds.push(rec.id));
+    Promise.resolve(saveSQLData());
+  })
+  .catch(err => {
+    console.log('Error!', err);
   });
 
-
-
-
-
+// save new fake records; using func declaration to hoist
+function saveSQLData() { 
+  // populate users table
+  for (var i = 0; i < 30; i++) {
+    let userEntry = { 
+      username: faker.internet.userName(),
+      email: faker.internet.email(),
+      about_me: faker.lorem.paragraph(), // eslint-disable-line camelcase
+      pic: faker.image.avatar()
+    };
+    orm.Users.create(userEntry);
+  }
+  // populate locations table
+  for (var i = 0; i < 30; i++) {
+    let locationEntry = { 
+      location: faker.address.city() + ', ' + faker.address.country() 
+    };
+    orm.Locations.create(locationEntry);
+  }
+  // populate posts table
+  for (var i = 0; i < 15; i++) {
+    let mongoId = mongoIds[i];
+    let postsEntry = { 
+      id_users: Math.floor(Math.random() * 30), // eslint-disable-line camelcase
+      title: faker.lorem.words(6),
+      subtitle: faker.lorem.sentence(),
+      id_mongo_text: mongoId, // eslint-disable-line camelcase
+      id_locations: Math.floor(Math.random() * 30) // eslint-disable-line camelcase
+    };
+    orm.Posts.create(postsEntry);
+  }
+}
