@@ -15,7 +15,4 @@ db.once('open', function() {
 
 const Post = mongoose.model('Post', { id: Number, text: String });
 
-var testPost = new Post({ text: 'This is a test post.'});
-testPost.save();
-
 module.exports.Post = Post;
