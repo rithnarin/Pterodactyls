@@ -35,8 +35,10 @@ git remote add upstream https://github.com/organization/<NAME_OF_REPO>.git
     or on your personal computer: mysql -u root -p
 5. From command line (not in mysql), run: mysql -u student < db/schema.sql
     or on your personal computer: mysql -u root < db/schema.sql
-6. From mysql prompt, enter: use database kuyikSQL
+6. From mysql prompt, enter: use kuyikSQL
 7. Run npm start
+8. Run npm run dev
+9. Run npm run build
 
 ### Cut a namespaced feature branch from master
 
