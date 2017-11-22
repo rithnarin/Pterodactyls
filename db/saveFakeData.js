@@ -1,4 +1,5 @@
 const faker = require('faker');
+var Promise = require('bluebird');
 // var mysql = require('mysql2');
 var orm = require('./orm.js');
 var mongo = require('./mongo.js');
@@ -7,60 +8,86 @@ var mongo = require('./mongo.js');
 
 let mongoIds = [];
 
-orm.db.sync()
+// create the database and tables
+orm.db.sync({force: true})
+  .then(() => orm.Users.sync())
+  .then(() => orm.Locations.sync())
+  .then(() => orm.Sessions.sync())
+  .then(() => orm.Posts.sync())
   .then(() => {
     return mongo.Post.remove({}).exec();
   })
+  .catch(err => console.log('Error syncing in saveFakeData.js', err))
   .then(() => {
     let fakePosts = [];
-    for (let i = 0; i < 50; i++) {
-      let fakePost = {id: i, text: faker.lorem.paragraphs(5)};
+    for (let i = 0; i < 15; i++) {
+      let fakePost = { text: faker.lorem.paragraphs(5) };
       fakePost = new mongo.Post(fakePost);
       fakePosts.push(fakePost.save());
     }
     return Promise.all(fakePosts);
   })
   .then(saved => {
-    return mongo.Post.find({}, {'id': 1, '_id': 0})
+    return mongo.Post.find({}, '_id')
       .lean();
   })
   .then(idRecords => {
-    idRecords.forEach(rec => mongoIds.push(rec.id));
-    Promise.resolve(saveSQLData());
+    mongoIds = idRecords.map(rec => rec._id.toString());
+    saveSQLUsers();
   })
   .catch(err => {
-    console.log('Error!', err);
+    console.log('Error saving SQL', err);
   });
 
-// save new fake records; using func declaration to hoist
-function saveSQLData() {
-  // populate users table
-  for (var i = 0; i < 30; i++) {
-    let userEntry = {
+
+// save new fake records; using func declarations to hoist
+
+// populate users table
+function saveSQLUsers() { 
+  var users = [];
+  for (var i = 0; i < 15; i++) {
+    let userEntry = { 
       username: faker.internet.userName(),
       email: faker.internet.email(),
       about_me: faker.lorem.paragraph(), // eslint-disable-line camelcase
       pic: faker.image.avatar()
     };
-    orm.Users.create(userEntry);
+    users.push(orm.Users.create(userEntry));
   }
-  // populate locations table
-  for (var i = 0; i < 30; i++) {
-    let locationEntry = {
-      location: faker.address.city() + ', ' + faker.address.country()
+  Promise.all(users)
+    .then(users => saveSQLLocations())
+    .catch(err => console.log('Error saving locations: ', err));
+}
+
+// populate locations table
+function saveSQLLocations() { 
+  var locations = [];
+  for (var i = 0; i < 15; i++) {
+    let locationEntry = { 
+      location: faker.address.city() + ', ' + faker.address.country() 
     };
-    orm.Locations.create(locationEntry);
+    locations.push(orm.Locations.create(locationEntry));
   }
-  // populate posts table
+  Promise.all(locations)
+    .then(locations => saveSQLPosts())
+    .catch(err => console.log('Error saving locations: ', err));
+}
+
+// populate posts table
+function saveSQLPosts() { 
+  var posts = [];
   for (var i = 0; i < 15; i++) {
     let mongoId = mongoIds[i];
-    let postsEntry = {
-      id_users: Math.floor(Math.random() * 30), // eslint-disable-line camelcase
+    let postsEntry = { 
+      id_users: 1 + Math.floor(Math.random() * 15), // eslint-disable-line camelcase
       title: faker.lorem.words(6),
       subtitle: faker.lorem.sentence(),
       id_mongo_text: mongoId, // eslint-disable-line camelcase
-      id_locations: Math.floor(Math.random() * 30) // eslint-disable-line camelcase
-    };
-    orm.Posts.create(postsEntry);
+      id_locations: 1 + Math.floor(Math.random() * 15) // eslint-disable-line camelcase
+    };  
+    posts.push(orm.Posts.create(postsEntry));
   }
+  Promise.all(posts)
+    .then(posts => console.log('Saved all fake posts...'))
+    .catch(err => console.log(err));
 }

@@ -2,13 +2,13 @@ import React from 'react';
 import axios from 'axios';
 
 const devStyle = {
-  border: "1px solid black",
-  padding: "2px",
-  margin: "2px"
+  border: '1px solid black',
+  padding: '2px',
+  margin: '2px'
 };
 
 /* expected props:
-  user, eventually, but for now we have the user type their name
+   user, eventually, but for now we have the user type their name
 */
 
 class PostingPage extends React.Component {
@@ -21,11 +21,11 @@ class PostingPage extends React.Component {
       subtitleInputText: '',
       mainInputText: ''
     };
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleKeyPress(e) {
+  handleChange(e) {
     let key = e.target.name + 'InputText';
     this.setState({
       [key]: e.target.value
@@ -34,12 +34,13 @@ class PostingPage extends React.Component {
 
   handleSubmit() {
     let newPost = {
-      author: this.state.author,
-      location: this.state.location,
-      title: this.state.title,
-      subtitle: this.state.subtitle,
-      main: this.state.main
+      author: this.state.authorInputText,
+      location: this.state.locationInputText,
+      title: this.state.titleInputText,
+      subtitle: this.state.subtitleInputText,
+      main: this.state.mainInputText
     };
+    console.log(newPost);
     axios.post('/posts', newPost);
   }
 
@@ -49,13 +50,13 @@ class PostingPage extends React.Component {
         <span>Author name:
           <input name="author"
             className="authorInput"
-            onKeyUp={e => this.handleKeyPress(e)}>
+            onChange={e => this.handleChange(e)}>
           </input>
         </span>
         <span>Location for post:
           <input name="location"
-            className="locationInput"
-            onKeyUp={e => this.handleKeyPress(e)}>
+            className="locationInput" 
+            onChange={e => this.handleChange(e)}>
           </input>
         </span>
       </div>
@@ -63,21 +64,21 @@ class PostingPage extends React.Component {
         Title:
         <input name="title"
           className="titleInput"
-          onKeyUp={e => this.handleKeyPress(e)}>
+          onChange={e => this.handleChange(e)}>
         </input>
       </div>
       <div style={devStyle}>
         Subtitle:
         <input name="subtitle"
           className="subtitleInput"
-          onKeyUp={e => this.handleKeyPress(e)}>
+          onChange={e => this.handleChange(e)}>
         </input>
       </div>
       <div style={devStyle}>
         Your story:
         <textarea name="main"
           className="mainInput"
-          onKeyUp={e => this.handleKeyPress(e)}>
+          onChange={e => this.handleChange(e)}>
         </textarea>
       </div>
       <div style={devStyle}>IMAGE UPLOAD COMPONENT HERE</div>
