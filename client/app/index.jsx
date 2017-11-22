@@ -12,14 +12,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      frontPosts: []
+      frontPosts: [],
+      view: 'home'
     };
     this.search = this.search.bind(this);
     this.loadHome = this.loadHome.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
   componentWillMount() {
     this.loadHome();
+    this.setState({
+      view: 'home'
+    });
   }
 
   loadHome() {
@@ -40,15 +45,32 @@ class App extends React.Component {
       ));
   }
 
+  changeView(view) {
+    this.setState({
+      view: view
+    });
+  }
+
+  renderView() {
+    const {view} = this.state;
+
+    if (view === 'home') {
+      return this.state.frontPosts.map(item => {
+        return <PostPreview post={item} />
+      });
+    } else if (view === 'create') {
+      return <PostingPage />
+    }
+  }
+
   render () {
     return (
       <div>
-        <NavBar search={this.search}/>
+        <NavBar
+          search={this.search}
+          changeView={this.changeView} />
         <br/>
-        {this.state.frontPosts.map((item, index) => {
-          return (<PostPreview post={item} key={index} />);
-        })}
-        <PostingPage />
+        { this.renderView() }
       </div>
     );
   }

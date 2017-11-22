@@ -30,6 +30,7 @@ class NavBar extends React.Component {
         onChange={this.handleChange}
         value="Search">
       </input>
+      <span onClick={() => this.props.changeView('create')}>Create a Post </span>
       <a href="#">Sign In </a>
       <a href="#">Sign Up</a>
     </nav>);
