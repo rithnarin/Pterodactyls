@@ -28,7 +28,7 @@ class NavBar extends React.Component {
       <a href="/">KUYiK</a>
       <input onKeyUp={this.handleKeyUp}
         onChange={this.handleChange}
-        value="Search">
+        placeholder="Search..">
       </input>
       <span onClick={() => this.props.changeView('create')}>Create a Post </span>
       <a href="#">Sign In </a>

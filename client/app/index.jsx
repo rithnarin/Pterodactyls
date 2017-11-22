@@ -42,8 +42,8 @@ class App extends React.Component {
       params: { search: query }
     })
       .then(response => this.setState(
-        { frontPosts: response.data },
-        () => console.log('Searched!')
+        { frontPosts: response.data }, 
+        () => console.log('Searched!' + query)
       ));
   }
 
@@ -67,12 +67,12 @@ class App extends React.Component {
         return <PostPreview
           post={item}
           changeView={this.changeView}
-          setFullPost={this.setFullPost} />
+          setFullPost={this.setFullPost} />;
       });
     } else if (view === 'create') {
-      return <PostingPage />
+      return <PostingPage />;
     } else if (view === 'post') {
-      return <FullPost fullPost={this.state.fullPost} />
+      return <FullPost fullPost={this.state.fullPost} />;
     }
   }
 

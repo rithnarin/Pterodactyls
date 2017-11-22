@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/home', (req, res) => {
   let sqlPosts = []; // need this external variable!!
-  db.searchAllPosts() // get posts from sql
+  db.searchFrontPosts() // get posts from sql for the home page
     .then(results => {
       sqlPosts = results; // set external variable
       return db.getMongoTextsForSqlResults(sqlPosts);
@@ -28,8 +28,29 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
+  let sqlPosts = [];
   db.searchAllPosts(req.query.search)
-    .then(posts => res.send(posts));
+    .then(posts => { 
+      sqlPosts = posts; // set external variable
+      return db.getMongoTextsForSqlResults(sqlPosts);
+    })
+    .then(results => { // use external variable --v
+      return db.addMongoTextsToSqlResults(sqlPosts, results);
+    })  
+    .then(allPosts => { // use external variable --v
+      let filteredPosts = [];
+      // Filter for post where the query is part of the title, author, or location
+      allPosts.map(post => {
+        let q = req.query.search.toLowerCase();
+        if (post.title.toLowerCase().includes(q) || post.author.toLowerCase().includes(q) || post.location.toLowerCase().includes(q)) {
+          filteredPosts.push(post);
+        }
+      });
+      res.send(filteredPosts);
+    })
+    .catch(err => console.log('GET /search error:', err));
+  console.log(req.query.search);
+
 });
 
 app.listen(process.env.PORT, () => {

@@ -82,14 +82,46 @@ Locations.hasMany(Posts, {foreignKey: 'id_locations'});
 
 Sessions.belongsTo(Users, {foreignKey: 'id_users'});
 
-
+//Gets post to load on home page
 searchFrontPosts = () => {
-  return Posts.findAll();
+  return Posts.findAll({
+    // include: [
+    //   { title: query, required: true }
+    // ]
+    limit: 5,
+    include: [{ // this performs joins
+      model: Users
+    }, {
+      model: Locations
+    }]
+  }) // this commented code won't work for some reason...
+  // .then(posts => {
+  //   posts.forEach(post => {
+  //     post.author = post.User.username;
+  //     post.location = post.Location.location;
+  //   });
+  //   return posts;
+  // });
+    .then(posts => {
+      return posts.map(post => {
+        let cleanPost = {
+          id: post.id,
+          title: post.title,
+          subtitle: post.subtitle,
+          author: post.User.username,
+          location: post.Location.location,
+          pics: post.pics,
+          id_mongo_text: post.id_mongo_text // eslint-disable-line camelcase
+        };
+        return cleanPost;
+      });
+    });
   // TO DO
   // Add limit and filter once decided, such as
   // top 20 most recent posts or top 10 liked posts
 };
 
+// Gets post to load through search field
 searchAllPosts = (query) => {
   return Posts.findAll({
     // include: [
