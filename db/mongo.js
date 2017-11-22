@@ -15,11 +15,6 @@ db.once('open', function() {
   console.log('Mongo connection successful');
 });
 
-const postSchema = new mongoose.Schema({
-  id: Number,
-  text: String,
-});
-
-const Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model('Post', { text: String });
 
 module.exports.Post = Post;
