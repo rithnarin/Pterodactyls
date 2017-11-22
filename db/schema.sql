@@ -19,11 +19,11 @@ USE kuyikSQL;
 
 -- -- ---
 -- -- Table 'Posts'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Posts`;
-    
+
 -- CREATE TABLE `Posts` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `id_users` INTEGER NULL,
@@ -37,11 +37,11 @@ USE kuyikSQL;
 
 -- -- ---
 -- -- Table 'Locations'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Locations`;
-    
+
 -- CREATE TABLE `Locations` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `location` VARCHAR(255) NULL UNIQUE DEFAULT '''',
@@ -50,11 +50,11 @@ USE kuyikSQL;
 
 -- -- ---
 -- -- Table 'Users'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Users`;
-    
+
 -- CREATE TABLE `Users` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `username` VARCHAR(255) NOT NULL UNIQUE DEFAULT '''',
@@ -66,11 +66,11 @@ USE kuyikSQL;
 
 -- -- ---
 -- -- Table 'Sessions'
--- -- 
+-- --
 -- -- ---
 
 -- DROP TABLE IF EXISTS `Sessions`;
-    
+
 -- CREATE TABLE `Sessions` (
 --   `id` INTEGER NOT NULL AUTO_INCREMENT,
 --   `id_users` INTEGER NOT NULL,
@@ -79,7 +79,7 @@ USE kuyikSQL;
 -- );
 
 -- -- ---
--- -- Foreign Keys 
+-- -- Foreign Keys
 -- -- ---
 
 -- ALTER TABLE `Posts` ADD FOREIGN KEY (id_users) REFERENCES `Users` (`id`);

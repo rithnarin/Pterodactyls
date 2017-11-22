@@ -24,7 +24,7 @@ class PostingPage extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   handleKeyPress(e) {
     let key = e.target.name + 'InputText';
     this.setState({
@@ -47,36 +47,36 @@ class PostingPage extends React.Component {
     return (<div style={devStyle}>
       <div style={devStyle}>
         <span>Author name:
-          <input name="author" 
-            className="authorInput" 
+          <input name="author"
+            className="authorInput"
             onKeyUp={e => this.handleKeyPress(e)}>
           </input>
         </span>
         <span>Location for post:
           <input name="location"
-            className="locationInput" 
+            className="locationInput"
             onKeyUp={e => this.handleKeyPress(e)}>
           </input>
         </span>
       </div>
       <div style={devStyle}>
-        Title: 
-        <input name="title" 
-          className="titleInput" 
+        Title:
+        <input name="title"
+          className="titleInput"
           onKeyUp={e => this.handleKeyPress(e)}>
         </input>
       </div>
       <div style={devStyle}>
-        Subtitle: 
-        <input name="subtitle" 
-          className="subtitleInput" 
+        Subtitle:
+        <input name="subtitle"
+          className="subtitleInput"
           onKeyUp={e => this.handleKeyPress(e)}>
         </input>
       </div>
       <div style={devStyle}>
         Your story:
-        <textarea name="main" 
-          className="mainInput" 
+        <textarea name="main"
+          className="mainInput"
           onKeyUp={e => this.handleKeyPress(e)}>
         </textarea>
       </div>

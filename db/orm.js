@@ -1,9 +1,9 @@
 require('dotenv').config();
 const mongo = require('./mongo.js');
 const Sequelize = require('sequelize');
-let db = new Sequelize('kuyikSQL', 
-  process.env.SQL_USERNAME, 
-  process.env.SQL_PASSWORD, 
+let db = new Sequelize('kuyikSQL',
+  process.env.SQL_USERNAME,
+  process.env.SQL_PASSWORD,
   {
     host: process.env.SQL_HOST,
     dialect: 'mysql'
@@ -86,7 +86,7 @@ Sessions.belongsTo(Users, {foreignKey: 'id_users'});
 searchFrontPosts = () => {
   return Posts.findAll();
   // TO DO
-  // Add limit and filter once decided, such as 
+  // Add limit and filter once decided, such as
   // top 20 most recent posts or top 10 liked posts
 };
 
@@ -130,13 +130,13 @@ searchAllPosts = (query) => {
 getMongoTextsForSqlResults = sqlResults => {
   let ids = sqlResults.map(post => post['id_mongo_text']);
   let mongoTexts = ids.map(id => {
-    return mongo.Post.findOne({id: id}, 
+    return mongo.Post.findOne({id: id},
       {text: 1, _id: 0}); // find *text* but don't include _id
   });
-  return Promise.all(mongoTexts);  
+  return Promise.all(mongoTexts);
 };
 
-// Combine the mongo and sql results so that 
+// Combine the mongo and sql results so that
 // we can send one object to the client
 
 addMongoTextsToSqlResults = (sqlPosts, mongoTexts) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FullPost = (props) => (
-  <div >
+  <div>
     <h1> {props.fullPost.title} </h1>
     <br/>
     <h1> Author: {props.fullPost.author} </h1>

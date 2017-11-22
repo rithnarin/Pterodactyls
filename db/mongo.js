@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
+const mongoUri = 'mongodb://localhost/kuyikMongo';
+mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/kuyikMongo', { useMongoClient: true });
+mongoose.connect(mongoUri, { useMongoClient: true });
 
 var db = mongoose.connection;
 
@@ -13,6 +15,11 @@ db.once('open', function() {
   console.log('Mongo connection successful');
 });
 
-const Post = mongoose.model('Post', { id: Number, text: String });
+const postSchema = new mongoose.Schema({
+  id: Number,
+  text: String,
+});
+
+const Post = mongoose.model('Post', postSchema);
 
 module.exports.Post = Post;

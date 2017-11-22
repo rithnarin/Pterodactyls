@@ -6,7 +6,7 @@ const db = require('../db/orm.js');
 const mongo = require('../db/mongo.js');
 
 // comment out if db already populated
-const fakeData = require('../db/saveFakeData.js'); 
+const fakeData = require('../db/saveFakeData.js');
 
 let app = express();
 
@@ -20,7 +20,7 @@ app.get('/home', (req, res) => {
     .then(results => {
       sqlPosts = results; // set external variable
       return db.getMongoTextsForSqlResults(sqlPosts);
-    })  
+    })
     .then(results => { // use external variable --v
       res.send(db.addMongoTextsToSqlResults(sqlPosts, results));
     })
