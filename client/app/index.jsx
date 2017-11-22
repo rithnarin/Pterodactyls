@@ -42,8 +42,8 @@ class App extends React.Component {
       params: { search: query }
     })
       .then(response => this.setState(
-        { frontPosts: response.data },
-        () => console.log('Searched!')
+        { frontPosts: response.data }, 
+        () => console.log('Searched!' + query)
       ));
   }
 
