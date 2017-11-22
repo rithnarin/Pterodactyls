@@ -6,9 +6,13 @@ var devStyle = {
   margin: '20px'
 };
 
+// onClick render to fullPost page
 const PostPreview = (props) => (
   <div style={devStyle} >
-    <h3> {props.post.title} </h3>
+    <h3 onClick={() => {
+        props.setFullPost(props.post);
+        props.changeView('post')
+      }}> {props.post.title} </h3>
     <hr/>
     <h4> Author: {props.post.author} </h4>
     <hr/>

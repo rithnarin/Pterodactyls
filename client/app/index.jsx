@@ -13,11 +13,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       frontPosts: [],
-      view: 'home'
+      view: 'home',
+      fullPost: []
     };
     this.search = this.search.bind(this);
     this.loadHome = this.loadHome.bind(this);
     this.changeView = this.changeView.bind(this);
+    this.setFullPost = this.setFullPost.bind(this);
   }
 
   componentWillMount() {
@@ -51,15 +53,26 @@ class App extends React.Component {
     });
   }
 
+  setFullPost(post) {
+    this.setState({
+      fullPost: post
+    });
+  }
+
   renderView() {
     const {view} = this.state;
 
     if (view === 'home') {
       return this.state.frontPosts.map(item => {
-        return <PostPreview post={item} />
+        return <PostPreview
+          post={item}
+          changeView={this.changeView}
+          setFullPost={this.setFullPost} />
       });
     } else if (view === 'create') {
       return <PostingPage />
+    } else if (view === 'post') {
+      return <FullPost fullPost={this.state.fullPost} />
     }
   }
 
