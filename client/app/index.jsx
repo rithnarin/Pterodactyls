@@ -63,8 +63,9 @@ class App extends React.Component {
     const {view} = this.state;
 
     if (view === 'home') {
-      return this.state.frontPosts.map(item => {
+      return this.state.frontPosts.map((item, index) => {
         return <PostPreview
+          key={index}
           post={item}
           changeView={this.changeView}
           setFullPost={this.setFullPost} />;
