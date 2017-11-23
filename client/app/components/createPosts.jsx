@@ -45,49 +45,54 @@ class PostingPage extends React.Component {
   }
 
   render() {
-    return (<div style={devStyle}>
-      <div style={devStyle}>
-        <span>Author name:
-          <input name="author"
-            className="authorInput"
-            onChange={e => this.handleChange(e)}>
-          </input>
-        </span>
-        <span>Location for post:
-          <input name="location"
-            className="locationInput" 
-            onChange={e => this.handleChange(e)}>
-          </input>
-        </span>
+    return (
+      <div className="container-fluid container-fill-height">
+        <div className="container-content-middle">
+          <div className="m-x-auto text-center app-login-form signup-user">
+            <form className="form-group">
+              <input name="author"
+                className="form-control"
+                placeholder="Author Name"
+                onChange={e => this.handleChange(e)}>
+              </input>
+              <br></br>
+              <input name="location"
+                placeholder="Location"
+                className="form-control"
+                onChange={e => this.handleChange(e)}>
+              </input>
+              <br></br>
+              <input name="title"
+                placeholder="Title"
+                className="form-control"
+                onChange={e => this.handleChange(e)}>
+              </input>
+              <br></br>
+              <input name="subtitle"
+                placeholder="Subtitle"
+                className="form-control"
+                onChange={e => this.handleChange(e)}>
+              </input>
+              <br></br>
+              <textarea name="main"
+                placeholder="Your Story"
+                className="form-control"
+                onChange={e => this.handleChange(e)}>
+              </textarea>
+            </form>
+            <footer className="screen-login">
+              IMAGE UPLOAD COMPONENT HERE
+            </footer>
+            <hr></hr>
+            <div className="m-b-lg">
+              <button className="btn btn-default" onClick={this.handleSubmit}>
+              Submit
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style={devStyle}>
-        Title:
-        <input name="title"
-          className="titleInput"
-          onChange={e => this.handleChange(e)}>
-        </input>
-      </div>
-      <div style={devStyle}>
-        Subtitle:
-        <input name="subtitle"
-          className="subtitleInput"
-          onChange={e => this.handleChange(e)}>
-        </input>
-      </div>
-      <div style={devStyle}>
-        Your story:
-        <textarea name="main"
-          className="mainInput"
-          onChange={e => this.handleChange(e)}>
-        </textarea>
-      </div>
-      <div style={devStyle}>IMAGE UPLOAD COMPONENT HERE</div>
-      <div>
-        <button name="submit-post" onClick={this.handleSubmit}>
-        Submit
-        </button>
-      </div>
-    </div>);
+    );
   }
 }
 

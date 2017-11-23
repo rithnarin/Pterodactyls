@@ -43,7 +43,7 @@ h1 {
 }
 mark {
   background: #ff0;
-  color: #000
+  color: #146DB4
 }
 sub, sup {
   font-size: 75%;
@@ -121,7 +121,7 @@ td, th {
   }
   *, :after, :before {
     background: 0 0!important;
-    color: #000!important;
+    color: #146DB4!important;
     box-shadow: none!important;
     text-shadow: none!important
   }
@@ -157,10 +157,10 @@ td, th {
     display: none
   }
   .btn>.caret, .dropup>.btn>.caret {
-    border-top-color: #000!important
+    border-top-color: #146DB4!important
   }
   .label {
-    border: 1px solid #000
+    border: 1px solid #146DB4
   }
   .table {
     border-collapse: collapse!important
@@ -197,7 +197,7 @@ button, input, select, textarea {
   line-height: inherit
 }
 a {
-  color: #B40404;
+  color: #126BC4;
   text-decoration: none
 }
 a:focus, a:hover {
@@ -348,7 +348,7 @@ p {
   color: #9da9b0
 }
 .text-primary {
-  color: #B40404
+  color: #126BC4
 }
 a.text-primary:focus, a.text-primary:hover {
   color: #820303
@@ -379,7 +379,7 @@ a.text-danger:focus, a.text-danger:hover {
 }
 .bg-primary {
   color: #fff;
-  background-color: #B40404
+  background-color: #126BC4
 }
 a.bg-primary:focus, a.bg-primary:hover {
   background-color: #820303
@@ -1088,7 +1088,7 @@ select[multiple].input-lg, textarea.input-lg {
   outline-offset: -2px
 }
 .btn.focus, .btn:focus, .btn:hover {
-  color: #B40404;
+  color: #126BC4;
   text-decoration: none
 }
 .btn.active, .btn:active {
@@ -1105,22 +1105,22 @@ a.btn.disabled, fieldset[disabled] a.btn {
   pointer-events: none
 }
 .btn-default {
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff;
   border-color: #d4dbe0
 }
 .btn-default.focus, .btn-default:focus {
-  color: #B40404;
+  color: #126BC4;
   background-color: #e6e6e6;
   border-color: #8a9dab
 }
 .btn-default.active, .btn-default:active, .btn-default:hover, .open>.dropdown-toggle.btn-default {
-  color: #B40404;
+  color: #126BC4;
   background-color: #e6e6e6;
   border-color: #b0bdc6
 }
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
-  color: #B40404;
+  color: #126BC4;
   background-color: #d4d4d4;
   border-color: #8a9dab
 }
@@ -1129,7 +1129,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
   border-color: #d4dbe0
 }
 .btn-default .badge, .btn-primary {
-  background-color: #B40404;
+  background-color: #126BC4;
   color: #fff
 }
 .btn-primary {
@@ -1151,11 +1151,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
   border-color: #1e0101
 }
 .btn-primary.disabled.focus, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled].focus, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
-  background-color: #B40404;
+  background-color: #126BC4;
   border-color: #9b0303
 }
 .btn-primary .badge {
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff
 }
 .btn-success {
@@ -1274,7 +1274,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
   background-color: #fff
 }
 .btn-link {
-  color: #B40404;
+  color: #126BC4;
   font-weight: 400;
   border-radius: 0
 }
@@ -2045,7 +2045,7 @@ tbody.collapse.in {
   color: #fff;
   text-decoration: none;
   outline: 0;
-  background-color: #B40404
+  background-color: #126BC4
 }
 .dropdown-menu>.disabled>a, .dropdown-menu>.disabled>a:focus, .dropdown-menu>.disabled>a:hover {
   color: #9da9b0
@@ -2353,7 +2353,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
   background-color: #f5f8fa;
-  border-color: #B40404
+  border-color: #126BC4
 }
 .nav .nav-divider {
   height: 1px;
@@ -2431,7 +2431,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
   color: #fff;
-  background-color: #B40404
+  background-color: #126BC4
 }
 .nav-stacked>li+li {
   margin-top: 2px;
@@ -2827,8 +2827,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   color: #ccc
 }
 .navbar-inverse {
-  background-color: #000;
-  border-color: #CD0000
+  background-color: #146DB4;
+  border-color: #126BC4
 }
 .navbar-inverse .navbar-brand {
   color: rgba(255, 255, 255, .8)
@@ -2852,16 +2852,16 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   background-color: transparent
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #B40404
+  border-color: #126BC4
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-  background-color: #000
+  background-color: #146DB4
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #fff
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  border-color: #000
+  border-color: #146DB4
 }
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
   background-color: transparent;
@@ -2869,10 +2869,10 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 @media (max-width:767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu>.dropdown-header {
-    border-color: #CD0000
+    border-color: #126BC4
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-    background-color: #CD0000
+    background-color: #126BC4
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
     color: rgba(255, 255, 255, .8)
@@ -2930,7 +2930,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   padding: 6px 12px;
   line-height: 1.6;
   text-decoration: none;
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff;
   border: 1px solid #ddd;
   margin-left: -1px
@@ -2953,8 +2953,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
   z-index: 3;
   color: #fff;
-  background-color: #B40404;
-  border-color: #B40404;
+  background-color: #126BC4;
+  border-color: #126BC4;
   cursor: default
 }
 .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
@@ -3048,7 +3048,7 @@ a.label:focus, a.label:hover {
   background-color: #819099
 }
 .label-primary {
-  background-color: #B40404
+  background-color: #126BC4
 }
 .label-primary[href]:focus, .label-primary[href]:hover {
   background-color: #820303
@@ -3103,7 +3103,7 @@ a.badge:focus, a.badge:hover {
   cursor: pointer
 }
 .list-group-item.active>.badge, .nav-pills>.active>a>.badge {
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff
 }
 .jumbotron, .jumbotron .h1, .jumbotron h1 {
@@ -3173,7 +3173,7 @@ a.badge:focus, a.badge:hover {
   margin-right: auto
 }
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
-  border-color: #B40404
+  border-color: #126BC4
 }
 .thumbnail .caption {
   padding: 9px;
@@ -3284,7 +3284,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
   line-height: 22px;
   color: #fff;
   text-align: center;
-  background-color: #B40404;
+  background-color: #126BC4;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
   -webkit-transition: width .6s ease;
   transition: width .6s ease
@@ -3419,8 +3419,8 @@ button.list-group-item {
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
   z-index: 2;
   color: #fff;
-  background-color: #B40404;
-  border-color: #B40404
+  background-color: #126BC4;
+  border-color: #126BC4
 }
 .list-group-item.active .list-group-item-heading, .list-group-item.active .list-group-item-heading>.small, .list-group-item.active .list-group-item-heading>small, .list-group-item.active:focus .list-group-item-heading, .list-group-item.active:focus .list-group-item-heading>.small, .list-group-item.active:focus .list-group-item-heading>small, .list-group-item.active:hover .list-group-item-heading, .list-group-item.active:hover .list-group-item-heading>.small, .list-group-item.active:hover .list-group-item-heading>small {
   color: inherit
@@ -3650,22 +3650,22 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
   border-bottom-color: #d3e0e9
 }
 .panel-primary {
-  border-color: #B40404
+  border-color: #126BC4
 }
 .panel-primary>.panel-heading {
   color: #fff;
-  background-color: #B40404;
-  border-color: #B40404
+  background-color: #126BC4;
+  border-color: #126BC4
 }
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
-  border-top-color: #B40404
+  border-top-color: #126BC4
 }
 .panel-primary>.panel-heading .badge {
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff
 }
 .panel-primary>.panel-footer+.panel-collapse>.panel-body {
-  border-bottom-color: #B40404
+  border-bottom-color: #126BC4
 }
 .panel-success {
   border-color: #d6e9c6
@@ -3786,7 +3786,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
   float: right;
   font-size: 21px;
   line-height: 1;
-  color: #000;
+  color: #146DB4;
   text-shadow: 0 1px 0 #fff;
   opacity: .2;
   filter: alpha(opacity=20)
@@ -3807,7 +3807,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
   font-weight: 400
 }
 .close:focus, .close:hover {
-  color: #000;
+  color: #146DB4;
   text-decoration: none;
   cursor: pointer;
   opacity: .5;
@@ -3861,7 +3861,7 @@ button.close {
 .modal-backdrop {
   position: fixed;
   z-index: 1040;
-  background-color: #000
+  background-color: #146DB4
 }
 .modal-backdrop.fade {
   opacity: 0;
@@ -3931,7 +3931,7 @@ button.close {
   bottom: 0;
   margin-bottom: -5px;
   border-width: 5px 5px 0;
-  border-top-color: #000
+  border-top-color: #146DB4
 }
 @media (min-width:992px) {
   .modal-lg {
@@ -3973,7 +3973,7 @@ button.close {
   padding: 3px 8px;
   color: #fff;
   text-align: center;
-  background-color: #000;
+  background-color: #146DB4;
   border-radius: 4px
 }
 .tooltip-arrow {
@@ -3988,7 +3988,7 @@ button.close {
   left: 50%;
   margin-left: -5px;
   border-width: 5px 5px 0;
-  border-top-color: #000
+  border-top-color: #146DB4
 }
 .tooltip.top-left .tooltip-arrow {
   right: 5px
@@ -4600,7 +4600,7 @@ button.close {
   color: #fff
 }
 .btn-default-outline, .btn-default-outline.disabled, .btn-default-outline.disabled.active, .btn-default-outline.disabled.focus, .btn-default-outline.disabled:active, .btn-default-outline.disabled:focus, .btn-default-outline.disabled:hover, .btn-default-outline[disabled], .btn-default-outline[disabled].active, .btn-default-outline[disabled].focus, .btn-default-outline[disabled]:active, .btn-default-outline[disabled]:focus, .btn-default-outline[disabled]:hover, fieldset[disabled] .btn-default-outline, fieldset[disabled] .btn-default-outline.active, fieldset[disabled] .btn-default-outline.focus, fieldset[disabled] .btn-default-outline:active, fieldset[disabled] .btn-default-outline:focus, fieldset[disabled] .btn-default-outline:hover {
-  border-color: #B40404
+  border-color: #126BC4
 }
 .alert-dark hr {
   border-top-color: rgba(0, 0, 0, .8)
@@ -4618,12 +4618,12 @@ button.close {
   border-radius: 0
 }
 .btn-default-outline {
-  color: #B40404;
+  color: #126BC4;
   background-color: transparent
 }
 .btn-default-outline.active, .btn-default-outline.focus, .btn-default-outline:active, .btn-default-outline:focus, .btn-default-outline:hover, .open>.dropdown-toggle.btn-default-outline {
   color: #fff;
-  background-color: #B40404;
+  background-color: #126BC4;
   box-shadow: none
 }
 .btn-primary-outline, .btn-primary-outline.disabled, .btn-primary-outline.disabled.active, .btn-primary-outline.disabled.focus, .btn-primary-outline.disabled:active, .btn-primary-outline.disabled:focus, .btn-primary-outline.disabled:hover, .btn-primary-outline[disabled], .btn-primary-outline[disabled].active, .btn-primary-outline[disabled].focus, .btn-primary-outline[disabled]:active, .btn-primary-outline[disabled]:focus, .btn-primary-outline[disabled]:hover, fieldset[disabled] .btn-primary-outline, fieldset[disabled] .btn-primary-outline.active, fieldset[disabled] .btn-primary-outline.focus, fieldset[disabled] .btn-primary-outline:active, fieldset[disabled] .btn-primary-outline:focus, fieldset[disabled] .btn-primary-outline:hover {
@@ -4631,7 +4631,7 @@ button.close {
 }
 .btn-default-outline .badge {
   color: #fff;
-  background-color: #B40404
+  background-color: #126BC4
 }
 .btn-primary-outline {
   color: #9b0303;
@@ -4841,8 +4841,8 @@ button.close {
   box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9
 }
 .custom-control input:checked~.custom-control-indicator {
-  background-color: #B40404;
-  border-color: #B40404;
+  background-color: #126BC4;
+  border-color: #126BC4;
   box-shadow: none
 }
 .custom-control input:active~.custom-control-indicator {
@@ -6391,7 +6391,7 @@ button.close {
 }
 .navbar-inverse .navbar-brand-emphasized, .navbar-inverse .navbar-brand-emphasized:focus, .navbar-inverse .navbar-brand-emphasized:hover {
   color: #fff;
-  background-color: #CD0000
+  background-color: #126BC4
 }
 .navbar-padded .navbar-header {
   padding-left: 5px;
@@ -6437,7 +6437,7 @@ button.close {
   border-bottom: 4px solid transparent
 }
 .nav-bordered>li>a:focus, .nav-bordered>li>a:hover {
-  color: #B40404;
+  color: #126BC4;
   background-color: transparent
 }
 .nav-bordered>li+li {
@@ -6445,8 +6445,8 @@ button.close {
 }
 .nav-bordered>li.active>a, .nav-bordered>li.active>a:focus, .nav-bordered>li.active>a:hover {
   font-weight: 500;
-  color: #B40404;
-  border-bottom-color: #B40404
+  color: #126BC4;
+  border-bottom-color: #126BC4
 }
 .nav-bordered.nav-justified>li+li {
   margin-left: 0
@@ -6462,7 +6462,7 @@ button.close {
   margin-top: 0
 }
 .nav-bordered.nav-stacked>li.active>a, .nav-bordered.nav-stacked>li.active>a:focus, .nav-bordered.nav-stacked>li.active>a:hover {
-  border-left-color: #B40404
+  border-left-color: #126BC4
 }
 .nav-bordered.nav-stacked>li>a {
   display: block;
@@ -6777,7 +6777,7 @@ img.zoom-img {
 }
 .media-list-conversation .media-current-user .media-body-text {
   color: #fff;
-  background-color: #B40404
+  background-color: #126BC4
 }
 .media-list-conversation .media-current-user .media-body-text:first-child:before {
   left: auto;
@@ -6785,7 +6785,7 @@ img.zoom-img {
   margin-left: 0;
   margin-right: 2px;
   border-right: 0;
-  border-left: 6px solid #B40404
+  border-left: 6px solid #126BC4
 }
 .media-list-conversation .media-current-user .media-object {
   margin-left: 5px;
@@ -6859,10 +6859,10 @@ img.zoom-img {
 
 abbr[title], abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #B40404;
+  border-bottom: 1px dotted #126BC4;
 }
 .form-control {
-  border: 1px solid #000;
+  border: 1px solid #146DB4;
 }
 .form-friends {
   height: 36px;
@@ -6872,7 +6872,7 @@ abbr[title], abbr[data-original-title] {
   color: #536570;
   background-color: #ffffff;
   background-image: none;
-  border: 1px solid #000;
+  border: 1px solid #146DB4;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -6886,7 +6886,7 @@ abbr[title], abbr[data-original-title] {
   margin: 1%;
 }
 .form-control:focus {
-  border-color: #B40404;
+  border-color: #126BC4;
 }
 .has-success .form-control {
   border-color: #000;
@@ -6895,25 +6895,25 @@ abbr[title], abbr[data-original-title] {
   border-color: #000;
 }
 .has-success .input-group-addon {
-  color: #B40404;
+  color: #126BC4;
   border-color: #000;
   background-color: #fff;
 }
 .btn-default {
-  color: #B40404;
+  color: #126BC4;
   background-color: #fff;
   border-color: #000;
 }
 .btn-default:hover {
   color: #fff;
   background-color: #000;
-  border-color: #B40404;
+  border-color: #126BC4;
 }
 .btn-primary {
-  border-color: #000;
+  border-color: #146DB4;
 }
 .btn-primary:hover {
-  border-color: #B40404;
+  border-color: #126BC4;
 }
 @media (min-width: 768px) {
   .modal-dialog {
@@ -6921,11 +6921,11 @@ abbr[title], abbr[data-original-title] {
   }
 }
 .btn-primary-outline {
-  color: #B40404;
-  border-color: #000;
+  color: #126BC4;
+  border-color: #146DB4;
 }
 .open>.dropdown-toggle.btn-primary-outline {
-  background-color: #B40404;
+  background-color: #126BC4;
 }
 .gallery .image {
   background-size: cover;
@@ -6951,13 +6951,13 @@ abbr[title], abbr[data-original-title] {
 .subtabs .nav>li>a {
   padding: 0 10px 18px;
   font-size: 16px;
-  color: #B40404;
+  color: #126BC4;
 }
 .subtabs .nav-tabs>li>a {
   transition: color 0.2s ease-in-out;
 }
 .subtabs .nav-tabs>li>a:focus, .subtabs .nav-tabs>li>a:hover, .subtabs .nav>li.active>a {
-  color: #000;
+  color: #146DB4;
   background: transparent;
   border-color: transparent;
 }
@@ -6982,7 +6982,7 @@ abbr[title], abbr[data-original-title] {
 .status-container {
   width: 100%;
   height: 30px;
-  background-color: #000000;
+  background-color: #146DB4;
   opacity: 0.8;
   padding: 2.5px;
   bottom: 0;
@@ -7014,5 +7014,74 @@ abbr[title], abbr[data-original-title] {
   font-size: 1.1em;
 }
 hr {
-  border-color: #B40404;
+  border-color: #126BC4;
+}
+.highlight {
+  background-color: #fff;
+  border-color: #d3e0e9;
+}
+
+
+/* general overrides */
+.list-group-item .glyphicon {
+  line-height: 1.4;
+}
+.modal-header .close {
+  margin-top: 4px;
+}
+
+
+/* navbar */
+.app-navbar {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.app-navbar .form-control {
+  box-shadow: none;
+}
+.app-navbar .navbar-brand img {
+  width: 85px;
+}
+.app-navbar .navbar-collapse {
+  max-height: inherit;
+}
+.app-navbar .navbar-collapse:after {
+  height: 100vh;
+}
+.app-navbar .form-control {
+  border-color: #126BC4;
+}
+.app-notifications {
+  margin-left: -12px;
+  padding-bottom: 10px !important;
+}
+.app-notifications .icon:before {
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .app-navbar .navbar-collapse:after {
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .app-search {
+    margin-top: -1px;
+  }
+}
+
+
+/* misc */
+.app-login-form {
+  max-width: 450px;
+  margin-top: 10px;
+}
+.app-new-msg {
+  margin-right: 10px;
+}
+.app-brand {
+  width: 100%;
+  display: inline-block;
+}
+.app-brand img {
+  width: 100%;
 }
