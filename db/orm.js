@@ -67,7 +67,7 @@ const Posts = db.define('Posts', {
   subtitle: Sequelize.STRING,
   pics: Sequelize.STRING,
   id_mongo_text: Sequelize.STRING // eslint-disable-line camelcase
-}); 
+});
 
 
 // create foreign keys in our tables via sequelize "associations"
@@ -98,7 +98,7 @@ searchFrontPosts = () => {
     // include: [
     //   { title: query, required: true }
     // ]
-    limit: 5,
+    //limit: 5,
     order: [['createdAt', 'DESC']],
     include: [{ // this performs joins
       model: Users
@@ -174,7 +174,7 @@ searchAllPosts = (query) => {
 getMongoTextsForSqlResults = sqlResults => {
   let ids = sqlResults.map(post => post['id_mongo_text']);
   let mongoTexts = ids.map(_id => {
-    return mongo.Post.findOne({_id: _id}); 
+    return mongo.Post.findOne({_id: _id});
   });
   return Promise.all(mongoTexts);
 };

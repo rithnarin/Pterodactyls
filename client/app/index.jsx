@@ -5,6 +5,7 @@ import axios from 'axios';
 import NavBar from './components/navbar.jsx';
 import PostingPage from './components/createPosts.jsx';
 import FullPost from './components/fullPost.jsx';
+import PostPreviewList from './components/PostPreviewList.jsx';
 import PostPreview from './components/postPreview.jsx';
 
 
@@ -42,7 +43,7 @@ class App extends React.Component {
       params: { search: query }
     })
       .then(response => this.setState(
-        { frontPosts: response.data }, 
+        { frontPosts: response.data },
         () => console.log('Searched!' + query)
       ));
   }
@@ -63,13 +64,10 @@ class App extends React.Component {
     const {view} = this.state;
 
     if (view === 'home') {
-      return this.state.frontPosts.map((item, index) => {
-        return <PostPreview
-          key={index}
-          post={item}
-          changeView={this.changeView}
-          setFullPost={this.setFullPost} />;
-      });
+      return <PostPreviewList
+        posts={this.state.frontPosts}
+        changeView={this.changeView}
+        setFullPost={this.setFullPost} />;
     } else if (view === 'create') {
       return <PostingPage />;
     } else if (view === 'post') {
