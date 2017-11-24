@@ -6,7 +6,7 @@ const db = require('../db/orm.js');
 const mongo = require('../db/mongo.js');
 
 // comment out if db already populated
-const fakeData = require('../db/saveFakeData.js');
+//const fakeData = require('../db/saveFakeData.js');
 
 let app = express();
 
@@ -32,13 +32,13 @@ app.get('/home', (req, res) => {
 app.get('/search', (req, res) => {
   let sqlPosts = [];
   db.searchAllPosts(req.query.search)
-    .then(posts => { 
+    .then(posts => {
       sqlPosts = posts; // set external variable
       return db.getMongoTextsForSqlResults(sqlPosts);
     })
     .then(results => { // use external variable --v
       return db.addMongoTextsToSqlResults(sqlPosts, results);
-    })  
+    })
     .then(allPosts => {
       let filteredPosts = [];
       // Filter for post where the query is part of the title, author, or location
@@ -57,13 +57,13 @@ app.get('/search', (req, res) => {
 
 app.post('/posts', (req, res) => {
   console.log('req.body is: ', req.body);
-  let newPost = { 
+  let newPost = {
     // find or create user id below...
     id_users: 99999, // eslint-disable-line camelcase
     title: req.body.title,
     subtitle: req.body.subtitle,
     id_locations: 99999, // eslint-disable-line camelcase
-    // pics: req.body.pics, 
+    // pics: req.body.pics,
     // create mongo text id below...
     id_mongo_text: '' // eslint-disable-line camelcase
   };
@@ -77,7 +77,7 @@ app.post('/posts', (req, res) => {
         .spread((loc, created) => {
           console.log('loc from db: ', loc);
           newPost.id_locations = loc.get('id'); // eslint-disable-line camelcase
-        });    
+        });
     })
     .then(() => {
       let mongoText = new mongo.Post({text: req.body.main});
