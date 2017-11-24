@@ -1986,3 +1986,20 @@ hr {
 .app-brand img {
   width: 100%;
 }
+.preview {
+  background-size: cover;
+  background-position: center center;
+  display: block;
+  height: 200px;
+}
+.media-left, .media>.pull-left {
+  padding-right: 10px;
+  width: 250px
+}
+.media-body, .media-left, .media-right {
+  display: table-cell;
+  vertical-align: top
+}
+.full-post {
+  display: none;
+}
