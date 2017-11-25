@@ -13,7 +13,7 @@ const FullPost = (props) => (
             </div>
             <p> {props.fullPost.text} </p>
 
-            <div class="media-body-inline-grid">
+            <div className="media-body-inline-grid">
               <div>
                 <img src="https://wanderworld360.com/wp-content/uploads/2016/07/the-merlion-singapore-wallpaper.jpg">
                 </img>

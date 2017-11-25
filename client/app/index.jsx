@@ -15,18 +15,22 @@ class App extends React.Component {
     this.state = {
       frontPosts: [],
       view: 'home',
-      fullPost: []
+      fullPost: [],
+      filteredItems: [],
+      filtered: false
     };
     this.search = this.search.bind(this);
     this.loadHome = this.loadHome.bind(this);
     this.changeView = this.changeView.bind(this);
     this.setFullPost = this.setFullPost.bind(this);
+    this.isFiltered = this.isFiltered.bind(this);
   }
 
   componentWillMount() {
     this.loadHome();
     this.setState({
-      view: 'home'
+      view: 'home',
+      filtered: false
     });
   }
 
@@ -39,13 +43,12 @@ class App extends React.Component {
   }
 
   search(query) {
-    axios.get('/search', {
-      params: { search: query }
-    })
-      .then(response => this.setState(
-        { frontPosts: response.data },
-        () => console.log('Searched!' + query)
-      ));
+    let data = this.state.frontPosts.filter(item => item.title.toLowerCase().search(query) !== -1 || item.author.toLowerCase().search(query) !== -1);
+    this.setState({
+      filteredItems: data,
+      filtered: true
+    });
+    console.log(query);
   }
 
   changeView(view) {
@@ -67,7 +70,9 @@ class App extends React.Component {
       return <PostPreviewList
         posts={this.state.frontPosts}
         changeView={this.changeView}
-        setFullPost={this.setFullPost} />;
+        setFullPost={this.setFullPost}
+        filteredItems={this.state.filteredItems}
+        filtered={this.state.filtered} />;
     } else if (view === 'create') {
       return <PostingPage />;
     } else if (view === 'post') {
@@ -75,12 +80,19 @@ class App extends React.Component {
     }
   }
 
+  isFiltered() {
+    this.setState({
+      filtered: true
+    });
+  }
+
   render () {
     return (
       <div>
         <NavBar
           search={this.search}
-          changeView={this.changeView} />
+          changeView={this.changeView}
+          isFiltered={this.isFiltered} />
         <br/>
         { this.renderView() }
       </div>
