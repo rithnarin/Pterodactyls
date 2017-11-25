@@ -6,7 +6,7 @@ const db = require('../db/orm.js');
 const mongo = require('../db/mongo.js');
 
 // comment out if db already populated
-// require('../db/saveFakeData.js');
+//require('../db/saveFakeData.js');
 
 let app = express();
 
@@ -86,6 +86,9 @@ app.post('/posts', (req, res) => {
     .then(savedText => {
       newPost.id_mongo_text = savedText['_id'].toString(); // eslint-disable-line camelcase
       db.Posts.create(newPost);
+    })
+    .then(() => {
+      res.redirect('/');
     });
 });
 
