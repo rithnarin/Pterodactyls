@@ -15,7 +15,6 @@ class NavBar extends React.Component {
     if (e.keyCode === 13) {
       this.props.search(this.state.searchText);
       this.props.isFiltered();
-      console.log(this.props.search);
     }
   }
 
