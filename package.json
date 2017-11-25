@@ -9,8 +9,14 @@
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p",
+    "start-mysql": "mysql.server start",
+    "start-mongo": "mongod",
+    "start-node": "nodemon server/index.js",
+    "stop-mysql": "mysql.server stop",
+    "stop-mongo": "mongo admin --eval \"db.shutdownServer()\"",
     "pomander": "curl -s https://raw.githubusercontent.com/hackreactor-labs/pomander/master/bin/install | bash",
-    "start": "nodemon server/index.js"
+    "start": "npm-run-all --parallel start-mysql start-mongo start-node",
+    "stop": "npm-run-all --serial stop-mysql stop-mongo"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -19,20 +25,21 @@
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
     "mongoose": "^4.13.3",
+    "mysql": "^2.15.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "sequelize": "^4.22.6",
     "webpack": "^3.8.1"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
     "babel-cli": "^6.7.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.7.2",
+    "dotenv": "^4.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "express": "^4.16.2",
     "faker": "^4.1.0",
-    "mysql2": "^1.5.0"
+    "npm-run-all": "^4.1.2"
   },
   "babel": {
     "presets": [

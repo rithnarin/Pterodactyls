@@ -22,24 +22,17 @@ git remote add upstream https://github.com/organization/<NAME_OF_REPO>.git
 
 ### Set up the repo
 
-0. Make sure your .env file is set up with these below. Check that sequelize is set up in orm.js to use those SQL variables.
+0. Make sure your .env file is set up with the variables below.
       PORT=5000
       SQL_HOST=localhost
       SQL_USERNAME=         <--- fill your username in
       SQL_PASSWORD=         <--- fill your password in
       MONGODB_URI=mongodb://localhost/kuyikMongo
-1. Run npm install
-2. From command line, start mongo by entering: mongod
-    and in another tab, access mongo command line with: mongo
-3. From command line, start mySQL by entering: mysql.server start
-4. From command line, access mySQL by entering: mysql -u student -p
-    or on your personal computer: mysql -u root -p
-5. If you don't have your kuyikSQL database set up using the current version of the sequelize schema in orm.js, then from command line (not in mysql), run: mysql -u student < db/schema.sql
-    or on your personal computer: mysql -u root < db/schema.sql
-6. From mysql prompt, enter: use kuyikSQL
-7. Run npm run dev
-8. Run npm start
-9. Run npm run build
+1. To install dependencies:  npm install
+2. To start webpack:  npm run dev
+3. To start mongo, mysql, and nodemon:  npm start
+4. If you want to build: npm run build
+5. On shutdown, make sure servers are stopped: npm stop
 
 ### Cut a namespaced feature branch from master
 
