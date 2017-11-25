@@ -14,6 +14,8 @@ class NavBar extends React.Component {
   handleKeyUp(e) {
     if (e.keyCode === 13) {
       this.props.search(this.state.searchText);
+      this.props.isFiltered();
+      console.log(this.props.search);
     }
   }
 
@@ -31,16 +33,16 @@ class NavBar extends React.Component {
         </div>
         <ul className="nav navbar-nav navbar-right m-r-0 hidden-xs">
           <li><a href="#" onClick={() => this.props.changeView('create')}>Create a Post </a></li>
-          <form className="navbar-form navbar-right app-search">
+          <div className="navbar-form navbar-right app-search">
             <div className="form-group">
               <input
                 className="form-control"
-                onKeyUp={this.handleKeyUp}
-                onChange={this.handleChange}
+                onChange={(e) => this.handleChange(e)}
+                onKeyUp={(e) => this.handleKeyUp(e)}
                 placeholder="Search..">
               </input>
             </div>
-          </form>
+          </div>
           <li><a href="/">Sign In </a></li>
           <li><a href="/">Sign Up</a></li>
         </ul>

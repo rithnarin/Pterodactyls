@@ -249,9 +249,6 @@ ol, ul {
   padding-left: 5px;
   padding-right: 5px
 }
-.btn-group-vertical>.btn-group:after, .btn-toolbar:after, .clearfix:after, .container-fluid:after, .container:after, .dl-horizontal dd:after, .form-horizontal .form-group:after, .modal-actions:after, .modal-footer:after, .modal-header:after, .nav:after, .navbar-collapse:after, .navbar-header:after, .navbar:after, .pager:after, .panel-body:after, .row:after {
-  clear: both
-}
 .btn-group>.btn-group, .btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .dropdown-menu {
   float: left
 }
@@ -1985,4 +1982,21 @@ hr {
 }
 .app-brand img {
   width: 100%;
+}
+.preview {
+  background-size: cover;
+  background-position: center center;
+  display: block;
+  height: 200px;
+}
+.media-left, .media>.pull-left {
+  padding-right: 10px;
+  width: 250px
+}
+.media-body, .media-left, .media-right {
+  display: table-cell;
+  vertical-align: top
+}
+.full-post {
+  display: none;
 }

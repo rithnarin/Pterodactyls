@@ -6,7 +6,13 @@ const PostPreviewList = (props) => (
     <div className="row">
       <div className="col-md-12">
         <ul className="list-group media-list media-list-stream">
-          {props.posts.map((item, index) => {
+          {props.filtered ?  props.filteredItems.map((item, index) => {
+            return <PostPreview
+              key={index}
+              post={item}
+              changeView={props.changeView}
+              setFullPost={props.setFullPost} />;
+          }) : props.posts.map((item, index) => {
             return <PostPreview
               key={index}
               post={item}
