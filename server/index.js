@@ -86,9 +86,6 @@ app.post('/posts', (req, res) => {
     .then(savedText => {
       newPost.id_mongo_text = savedText['_id'].toString(); // eslint-disable-line camelcase
       db.Posts.create(newPost);
-    })
-    .then(() => {
-      res.redirect('/');
     });
 });
 
