@@ -73,9 +73,9 @@ app.post('/posts', (req, res) => {
       newPost.id_users = user.get('id'); // eslint-disable-line camelcase
     })
     .then(() => {
-      db.Locations.findOrCreate({where: {location: req.body.location}})
+      return db.Locations.findOrCreate({where: {location: req.body.location}})
         .spread((loc, created) => {
-          console.log('loc from db: ', loc);
+          console.log('loc from db: ', loc.get('id'));
           newPost.id_locations = loc.get('id'); // eslint-disable-line camelcase
         });
     })
