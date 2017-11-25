@@ -48,7 +48,6 @@ class App extends React.Component {
       filteredItems: data,
       filtered: true
     });
-    console.log(query);
   }
 
   changeView(view) {
