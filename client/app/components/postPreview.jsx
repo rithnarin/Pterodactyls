@@ -19,10 +19,11 @@ const PostPreview = (props) => (
                 props.setFullPost(props.post);
                 props.changeView('post');
               }} > {props.post.title} </h3>
-              <small className="pull-right text-muted">{moment(props.post.createdAt).startOf().fromNow()}</small>
               <span>{props.post.subtitle} </span>
           </div>
-          <small className="text-muted">{props.post.location} </small>
+          <small className="location">{props.post.location} </small>
+          <br></br>
+          <small className="text-muted">{moment(props.post.createdAt).startOf().fromNow()}</small>
           <p>{props.post.text.substring(0, 300)}&nbsp;&nbsp;[...] </p>
           <h5>by {props.post.author} </h5>
         </div>

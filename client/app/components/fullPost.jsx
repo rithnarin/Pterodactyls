@@ -7,11 +7,12 @@ const FullPost = (props) => (
       <div className="col-md-12">
         <ul className="list-group media-list media-list-stream">
           <li className="media list-group-item p-a">
-            <small className="pull-right text-muted">{moment(props.fullPost.createdAt).startOf().fromNow()}</small>
             <h2> {props.fullPost.title} </h2>
             <span>{props.fullPost.subtitle} </span>
             <div className="media-heading">
-              <small className="text-muted">{props.fullPost.location} </small>
+              <small className="location">{props.fullPost.location} </small>
+              <br></br>
+              <small className="text-muted">{moment(props.fullPost.createdAt).startOf().fromNow()}</small>
             </div>
             <p> {props.fullPost.text} </p>
 

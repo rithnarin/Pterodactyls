@@ -2000,3 +2000,7 @@ hr {
 .full-post {
   display: none;
 }
+.location {
+  color: #0D89DE;
+  font-weight: 700
+}
