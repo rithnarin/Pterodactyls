@@ -38,7 +38,7 @@ class App extends React.Component {
     axios.get('/home')
       .then(response => this.setState(
         { frontPosts: response.data },
-        () => console.log('Home page loaded!')
+        () => console.log('Home page loaded!', this.state.frontPosts)
       ));
   }
 
