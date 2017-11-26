@@ -81,15 +81,13 @@ class PostingPage extends React.Component {
                 onChange={e => this.handleChange(e)}>
               </textarea>
             </form>
-            <footer className="screen-login">
-              IMAGE UPLOAD COMPONENT HERE
-            </footer>
-            <hr></hr>
-            <div className="m-b-lg">
-              <button className="btn btn-default" onClick={this.handleSubmit}>
-              Submit
-              </button>
-            </div>
+            <form>
+              <footer className="screen-login">
+                IMAGE UPLOAD COMPONENT HERE
+              </footer>
+              <hr></hr>
+              <button className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
+            </form>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 // onClick render to fullPost page
 const PostPreview = (props) => (
@@ -13,14 +14,16 @@ const PostPreview = (props) => (
           </div>
         </div>
         <div className="media-body">
-          <h3 onClick={() => {
-            props.setFullPost(props.post);
-            props.changeView('post');
-          }}> {props.post.title} </h3>
-          <span>{props.post.subtitle} </span>
           <div className="media-heading">
-            <small className="text-muted">{props.post.location} </small>
+            <h3 onClick={() => {
+                props.setFullPost(props.post);
+                props.changeView('post');
+              }} > {props.post.title} </h3>
+              <span>{props.post.subtitle} </span>
           </div>
+          <small className="location">{props.post.location} </small>
+          <br></br>
+          <small className="text-muted">{moment(props.post.createdAt).startOf().fromNow()}</small>
           <p>{props.post.text.substring(0, 300)}&nbsp;&nbsp;[...] </p>
           <h5>by {props.post.author} </h5>
         </div>

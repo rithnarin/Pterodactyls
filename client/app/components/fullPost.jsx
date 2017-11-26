@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const FullPost = (props) => (
   <div className="container p-t-md">
@@ -9,7 +10,9 @@ const FullPost = (props) => (
             <h2> {props.fullPost.title} </h2>
             <span>{props.fullPost.subtitle} </span>
             <div className="media-heading">
-              <small className="text-muted">{props.fullPost.location} </small>
+              <small className="location">{props.fullPost.location} </small>
+              <br></br>
+              <small className="text-muted">{moment(props.fullPost.createdAt).startOf().fromNow()}</small>
             </div>
             <p> {props.fullPost.text} </p>
 

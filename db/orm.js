@@ -100,7 +100,8 @@ searchFrontPosts = () => {
           author: post.User.username,
           location: post.Location.location,
           pics: post.pics,
-          id_mongo_text: post.id_mongo_text // eslint-disable-line camelcase
+          id_mongo_text: post.id_mongo_text, // eslint-disable-line camelcase
+          createdAt: post.createdAt
         };
         return cleanPost;
       });
@@ -129,7 +130,8 @@ searchAllPosts = (query) => {
           author: post.User.username,
           location: post.Location.location,
           pics: post.pics,
-          id_mongo_text: post.id_mongo_text // eslint-disable-line camelcase
+          id_mongo_text: post.id_mongo_text, // eslint-disable-line camelcase
+          createdAt: post.createdAt
         };
         return cleanPost;
       });
