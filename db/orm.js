@@ -63,7 +63,7 @@ const Posts = db.define('Posts', {
   title: Sequelize.STRING,
   subtitle: Sequelize.STRING,
   pics: Sequelize.STRING,
-  id_mongo_text: Sequelize.STRING, // eslint-disable-line camelcaseß
+  id_mongo_text: Sequelize.STRING // eslint-disable-line camelcase
 });
 
 
