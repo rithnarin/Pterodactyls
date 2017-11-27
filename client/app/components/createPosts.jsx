@@ -53,7 +53,7 @@ class PostingPage extends React.Component {
             <form className="form-group">
               <input name="author"
                 className="form-control"
-                placeholder={this.props.user.google_name}
+                value={this.props.user.google_name}
                 onChange={e => this.handleChange(e)}>
               </input>
               <br></br>
@@ -83,7 +83,7 @@ class PostingPage extends React.Component {
             </form>
             <form>
               <footer className="screen-login">
-                IMAGE UPLOAD COMPONENT HERE
+                <input type="file" name="pic" accept="image/*"></input>
               </footer>
               <hr></hr>
               <button className="btn btn-default" onClick={this.handleSubmit}>Submit</button>

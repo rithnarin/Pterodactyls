@@ -7,7 +7,7 @@ const PostPreview = (props) => (
     <div className="media-left">
       <div
         className="preview"
-        style={{backgroundImage: "url(" + 'https://wanderworld360.com/wp-content/uploads/2016/07/the-merlion-singapore-wallpaper.jpg' + ")"}}
+        style={{backgroundImage: "url(" + props.post.pics + ")"}}
         onClick={() => {
           props.setFullPost(props.post);
           props.changeView('post');
@@ -26,14 +26,17 @@ const PostPreview = (props) => (
       <br></br>
       <small className="text-muted">{moment(props.post.createdAt).startOf().fromNow()}</small>
       <p>{props.post.text.substring(0, 300)}&nbsp;&nbsp;[...] </p>
-      <h5>by {props.post.google_name 
-        ? props.post.google_name 
-        : props.post.author} 
-      </h5>
       <div>
-        {props.post.google_avatar 
-          ? <img style={{maxHeight: '40px'}} src={props.post.google_avatar}/> 
-          : <img style={{maxHeight: '40px'}} src={props.post.avatar}/>}
+        <div className='pull-left'>
+          {props.post.google_avatar
+            ? <img className="img-circle media-object" src={props.post.google_avatar}/>
+          : <img className="img-circle media-object" src={props.post.avatar}/>}
+        </div>
+        <h5>
+          {props.post.google_name
+          ? props.post.google_name
+          : props.post.author}
+        </h5>
       </div>
     </div>
   </li>
