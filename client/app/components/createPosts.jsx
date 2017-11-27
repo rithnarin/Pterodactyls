@@ -83,7 +83,7 @@ class PostingPage extends React.Component {
             </form>
             <form>
               <footer className="screen-login">
-                IMAGE UPLOAD COMPONENT HERE
+                <input type="file" name="pic" accept="image/*"></input>
               </footer>
               <hr></hr>
               <button className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
