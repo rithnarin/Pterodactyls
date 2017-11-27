@@ -1,3 +1,7 @@
+/**
+ * @fileOverview Connects server to mySQL, creates a kuyikSQL database, and uses that database.
+ */
+
 require('dotenv').config();
 const Promise = require('bluebird');
 const mysql = require('mysql');

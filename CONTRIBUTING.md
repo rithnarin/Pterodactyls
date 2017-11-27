@@ -34,6 +34,9 @@ git remote add upstream https://github.com/organization/<NAME_OF_REPO>.git
 4. If you want to build: npm run build
 5. On shutdown, make sure servers are stopped: npm stop
 
+To generate jsdoc files for yourJavaScriptFile.js, run on command line:
+./node_modules/.bin/jsdoc yourJavaScriptFile.js
+
 ### Cut a namespaced feature branch from master
 
 Your branch should follow this naming convention:

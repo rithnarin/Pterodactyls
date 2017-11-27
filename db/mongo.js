@@ -1,3 +1,7 @@
+/**
+ * @fileOverview Connects Mongoose to mongoDB, exports Post model.
+ */
+
 const mongoose = require('mongoose');
 const faker = require('faker');
 const mongoUri = 'mongodb://localhost/kuyikMongo';

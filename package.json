@@ -45,6 +45,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "express": "^4.16.2",
     "faker": "^4.1.0",
+    "jsdoc": "^3.5.5",
     "npm-run-all": "^4.1.2"
   },
   "babel": {
