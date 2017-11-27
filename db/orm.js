@@ -143,7 +143,8 @@ searchAllPosts = (query) => {
           createdAt: post.createdAt,
           google_name: post.User.google_name, // eslint-disable-line camelcase
           google_id: post.User.google_id, // eslint-disable-line camelcase
-          google_avatar: post.User.google_avatar // eslint-disable-line camelcase
+          google_avatar: post.User.google_avatar, // eslint-disable-line camelcase
+          background_pic: post.pic
         };
         return cleanPost;
       });

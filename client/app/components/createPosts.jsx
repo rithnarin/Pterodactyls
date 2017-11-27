@@ -53,7 +53,7 @@ class PostingPage extends React.Component {
             <form className="form-group">
               <input name="author"
                 className="form-control"
-                placeholder={this.props.user.google_name}
+                value={this.props.user.google_name}
                 onChange={e => this.handleChange(e)}>
               </input>
               <br></br>

@@ -43,10 +43,10 @@ orm.db.sync({force: true})
 // save new fake records; using func declarations to hoist
 
 // populate users table
-function saveSQLUsers() { 
+function saveSQLUsers() {
   var users = [];
   for (var i = 0; i < 15; i++) {
-    let userEntry = { 
+    let userEntry = {
       username: faker.internet.userName(),
       email: faker.internet.email(),
       about_me: faker.lorem.paragraph(), // eslint-disable-line camelcase
@@ -60,11 +60,11 @@ function saveSQLUsers() {
 }
 
 // populate locations table
-function saveSQLLocations() { 
+function saveSQLLocations() {
   var locations = [];
   for (var i = 0; i < 15; i++) {
-    let locationEntry = { 
-      location: faker.address.city() + ', ' + faker.address.country() 
+    let locationEntry = {
+      location: faker.address.city() + ', ' + faker.address.country()
     };
     locations.push(orm.Locations.create(locationEntry));
   }
@@ -74,17 +74,18 @@ function saveSQLLocations() {
 }
 
 // populate posts table
-function saveSQLPosts() { 
+function saveSQLPosts() {
   var posts = [];
   for (var i = 0; i < 15; i++) {
     let mongoId = mongoIds[i];
-    let postsEntry = { 
+    let postsEntry = {
       id_users: 1 + Math.floor(Math.random() * 15), // eslint-disable-line camelcase
       title: faker.lorem.words(6),
       subtitle: faker.lorem.sentence(),
       id_mongo_text: mongoId, // eslint-disable-line camelcase
-      id_locations: 1 + Math.floor(Math.random() * 15) // eslint-disable-line camelcase
-    };  
+      id_locations: 1 + Math.floor(Math.random() * 15), // eslint-disable-line camelcase
+      pics: faker.image.image()
+    };
     posts.push(orm.Posts.create(postsEntry));
   }
   Promise.all(posts)
