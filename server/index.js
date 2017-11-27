@@ -8,6 +8,7 @@ const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const db = require('../db/orm.js');
 const mongo = require('../db/mongo.js');
+var axios = require('axios');
 
 // comment out if db already populated
 require('../db/saveFakeData.js');
@@ -186,6 +187,38 @@ app.get('/signout', function (req, res) {
   //
   //   res.redirect('/home');
   // });
+});
+
+// Uploading image to Imgur API
+app.post('/image', function(req, res) {
+
+  var temp = req.body.imageUrl.split(',')
+  var image = temp[1]
+
+  var form = {
+    'image': image
+  }
+
+  const config = {
+    baseURL: 'https://api.imgur.com',
+    headers: {
+      'Authorization': 'Client-ID ' + process.env.IMGUR_CLIENT_ID
+    }
+  }
+
+  axios.post('/3/image', form, config)
+  .then((result) => {
+    console.log('Image post success')
+    // HERE IS THE LINK THAT NEEDS TO BE STORED IN THE DB WITH THE POST
+    console.log(result.data.data.link)
+    res.status(201)
+    res.send('Uploaded');
+  })
+  .catch((error) => {
+    console.log('Image post error')
+    console.log(error)
+  })
+
 });
 
 app.listen(process.env.PORT, () => {
