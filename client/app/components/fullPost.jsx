@@ -38,7 +38,15 @@ const FullPost = (props) => (
               </div>
             </div>
 
-            <h5> by {props.fullPost.author} </h5>
+            <h5>by {props.fullPost.google_name 
+              ? props.fullPost.google_name 
+              : props.fullPost.author}
+            </h5>
+            <div>
+              {props.fullPost.google_avatar 
+                ? <img style={{maxHeight: '40px'}} src={props.fullPost.google_avatar}/> 
+                : <img style={{maxHeight: '40px'}} src={props.fullPost.avatar}/>}
+            </div>
           </li>
         </ul>
       </div>
