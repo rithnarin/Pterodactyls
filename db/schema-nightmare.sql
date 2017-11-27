@@ -1,3 +1,7 @@
+/**
+ * @fileOverview Unused SQL schema file intended for more complete version of the app.
+ */
+
 -- ---
 -- Globals
 -- ---
