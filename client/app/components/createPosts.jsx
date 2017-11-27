@@ -49,11 +49,11 @@ class PostingPage extends React.Component {
       <div className="container-fluid container-fill-height">
         <div className="container-content-middle">
           <div className="m-x-auto text-center app-login-form signup-user">
-            <h1>Tell Your Story</h1>
+            <h1>Tell Your Story, {this.props.user.google_name}</h1>
             <form className="form-group">
               <input name="author"
                 className="form-control"
-                placeholder="Author Name"
+                placeholder={this.props.user.google_name}
                 onChange={e => this.handleChange(e)}>
               </input>
               <br></br>

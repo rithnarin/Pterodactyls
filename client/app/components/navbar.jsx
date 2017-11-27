@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 class NavBar extends React.Component {
@@ -28,10 +29,12 @@ class NavBar extends React.Component {
     return (<nav className='navbar navbar-inverse navbar-fixed-top app-navbar'>
       <div className="container">
         <div className="navbar-header">
-          <a href="/" className="navbar-brand">KUYiK</a>
+          <a href="#" onClick={() => this.props.changeView('home')} className="navbar-brand">KuYiK</a>
         </div>
         <ul className="nav navbar-nav navbar-right m-r-0 hidden-xs">
-          <li><a href="#" onClick={() => this.props.changeView('create')}>Create a Post </a></li>
+          <li><a href="#" onClick={() => this.props.changeView('create')}>
+            {this.props.user.google_id ? 'Create a Post' : 'Sign In'} 
+          </a></li>
           <div className="navbar-form navbar-right app-search">
             <div className="form-group">
               <input
@@ -42,8 +45,10 @@ class NavBar extends React.Component {
               </input>
             </div>
           </div>
-          <li><a href="/">Sign In </a></li>
-          <li><a href="/">Sign Up</a></li>
+          {this.props.user.google_id 
+            ? <li><a href="/signout">Sign Out {this.props.user.google_name}</a></li>
+            : null
+          }
         </ul>
       </div>
     </nav>);

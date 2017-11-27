@@ -33,7 +33,11 @@ const Users = db.define('Users', {
   username: Sequelize.STRING,
   email: Sequelize.STRING,
   about_me: Sequelize.TEXT, // eslint-disable-line camelcase
-  pic: Sequelize.STRING
+  pic: Sequelize.STRING,
+  // below fields used for auth
+  google_name: Sequelize.STRING, // eslint-disable-line camelcase
+  google_id: Sequelize.STRING, // eslint-disable-line camelcase
+  google_avatar: Sequelize.STRING // eslint-disable-line camelcase
 });
 
 const Sessions = db.define('Sessions', {
@@ -98,10 +102,14 @@ searchFrontPosts = () => {
           title: post.title,
           subtitle: post.subtitle,
           author: post.User.username,
+          avatar: post.User.pic,
           location: post.Location.location,
           pics: post.pics,
           id_mongo_text: post.id_mongo_text, // eslint-disable-line camelcase
-          createdAt: post.createdAt
+          createdAt: post.createdAt,
+          google_name: post.User.google_name, // eslint-disable-line camelcase
+          google_id: post.User.google_id, // eslint-disable-line camelcase
+          google_avatar: post.User.google_avatar // eslint-disable-line camelcase
         };
         return cleanPost;
       });
@@ -128,10 +136,14 @@ searchAllPosts = (query) => {
           title: post.title,
           subtitle: post.subtitle,
           author: post.User.username,
+          avatar: post.User.pic,
           location: post.Location.location,
           pics: post.pics,
           id_mongo_text: post.id_mongo_text, // eslint-disable-line camelcase
-          createdAt: post.createdAt
+          createdAt: post.createdAt,
+          google_name: post.User.google_name, // eslint-disable-line camelcase
+          google_id: post.User.google_id, // eslint-disable-line camelcase
+          google_avatar: post.User.google_avatar // eslint-disable-line camelcase
         };
         return cleanPost;
       });
@@ -158,6 +170,15 @@ addMongoTextsToSqlResults = (sqlPosts, mongoTexts) => {
   return sqlPosts;
 };
 
+const saveGoogleUser = function(googleProfile) {
+  return Users.create({
+    google_id: googleProfile.id, // eslint-disable-line camelcase
+    google_name: googleProfile.name.givenName, // eslint-disable-line camelcase
+    google_avatar: googleProfile.photos[0].value // eslint-disable-line camelcase
+  })
+    .catch(err => console.log('Error saving user: ', err));
+};
+
 module.exports.db = db;
 module.exports.Posts = Posts;
 module.exports.Locations = Locations;
@@ -167,3 +188,4 @@ module.exports.searchAllPosts = searchAllPosts;
 module.exports.searchFrontPosts = searchFrontPosts;
 module.exports.getMongoTextsForSqlResults = getMongoTextsForSqlResults;
 module.exports.addMongoTextsToSqlResults = addMongoTextsToSqlResults;
+module.exports.saveGoogleUser = saveGoogleUser;
