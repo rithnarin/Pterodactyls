@@ -32,9 +32,10 @@ class NavBar extends React.Component {
           <a href="#" onClick={() => this.props.changeView('home')} className="navbar-brand">KuYiK</a>
         </div>
         <ul className="nav navbar-nav navbar-right m-r-0 hidden-xs">
-          <li><a href="#" onClick={() => this.props.changeView('create')}>
-            {this.props.user.google_id ? 'Create a Post' : 'Sign In'} 
-          </a></li>
+          <li>
+            {this.props.user.google_id ? <a href="#" onClick={() => this.props.changeView('create')}>Create a Post</a> : <a href="#" onClick={() => this.props.openModal()}>Sign In</a>}
+          </li>
+
           <div className="navbar-form navbar-right app-search">
             <div className="form-group">
               <input
@@ -45,7 +46,7 @@ class NavBar extends React.Component {
               </input>
             </div>
           </div>
-          {this.props.user.google_id 
+          {this.props.user.google_id
             ? <li><a href="/signout">Sign Out {this.props.user.google_name}</a></li>
             : null
           }

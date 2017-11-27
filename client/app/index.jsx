@@ -8,7 +8,18 @@ import FullPost from './components/fullPost.jsx';
 import PostPreviewList from './components/PostPreviewList.jsx';
 import PostPreview from './components/postPreview.jsx';
 import SignIn from './components/signIn.jsx';
+import Modal from 'react-modal';
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -19,13 +30,18 @@ class App extends React.Component {
       fullPost: [],
       filteredItems: [],
       filtered: false,
-      user: {}
+      user: {},
+      modalIsOpen: false
     };
+
     this.search = this.search.bind(this);
     this.loadHome = this.loadHome.bind(this);
     this.changeView = this.changeView.bind(this);
     this.setFullPost = this.setFullPost.bind(this);
     this.isFiltered = this.isFiltered.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +50,18 @@ class App extends React.Component {
       view: 'home',
       filtered: false
     });
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    this.subtitle.style.color = '#0D89DE';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
   }
 
   loadHome() {
@@ -79,7 +107,9 @@ class App extends React.Component {
       if (this.state.user.google_id) {
         return <PostingPage user={this.state.user}/>;
       } else {
-        return <SignIn />;
+        this.setState({
+          view: 'home'
+        });
       }
 
     } else if (view === 'post') {
@@ -100,10 +130,30 @@ class App extends React.Component {
           user={this.state.user}
           search={this.search}
           changeView={this.changeView}
-          isFiltered={this.isFiltered} />
+          isFiltered={this.isFiltered}
+          openModal={this.openModal} />
         <br/>
         { this.renderView() }
+
+        <div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={subtitle => this.subtitle = subtitle}>Sign in to post your own story</h2>
+          <a href="/auth/google">
+            <img src="btn_google_signin_light_normal_web@2x.png"
+              style={{width: '200px'}}
+            />
+          </a>
+        </Modal>
       </div>
+      </div>
+
+
     );
   }
 }

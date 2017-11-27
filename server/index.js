@@ -6,7 +6,7 @@ const db = require('../db/orm.js');
 const mongo = require('../db/mongo.js');
 
 // comment out if db already populated
-// require('../db/saveFakeData.js');
+ require('../db/saveFakeData.js');
 
 let app = express();
 
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const session = require('express-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-app.use(session({ 
+app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: true,
   resave: false
@@ -30,7 +30,7 @@ app.use(passport.session());
 
 // these two are needed for sessions (using default storage)
 passport.serializeUser(function(user, done) {
-  done(null, user.google_id); 
+  done(null, user.google_id);
 });
 passport.deserializeUser(function(googleId, done) {
   db.Users.find({where: {google_id: googleId} }) // eslint-disable-line camelcase
@@ -48,9 +48,9 @@ passport.use(new GoogleStrategy(
   function(accessToken, refreshToken, profile, done) {
     return db.Users.findOne({where: {google_id: profile.id} }) // eslint-disable-line camelcase
       .then(user => {
-        if (user) { 
-          return done(null, user); 
-        } else { 
+        if (user) {
+          return done(null, user);
+        } else {
           db.saveGoogleUser(profile)
             .then(user => done(null, user));
         }
@@ -61,14 +61,14 @@ passport.use(new GoogleStrategy(
 
 // using Google auth requires these two routes
 app.get('/auth/google',
-  passport.authenticate('google', { 
-    scope: ['https://www.googleapis.com/auth/plus.login'] 
+  passport.authenticate('google', {
+    scope: ['https://www.googleapis.com/auth/plus.login']
   })
 );
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { 
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
     successRedirect: '/',
-    failureRedirect: '/' 
+    failureRedirect: '/'
   })
 );
 //////////////////////////////////
@@ -166,8 +166,8 @@ app.get('/signout', function (req, res) {
   res.clearCookie('connect.sid');
   res.redirect('/');
   // req.session.destroy(function (err) {
-  //   
-  //   res.redirect('/home'); 
+  //
+  //   res.redirect('/home');
   // });
 });
 
