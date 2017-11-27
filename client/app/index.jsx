@@ -144,11 +144,7 @@ class App extends React.Component {
           contentLabel="Example Modal"
         >
           <h2 ref={subtitle => this.subtitle = subtitle}>Sign in to post your own story</h2>
-          <a href="/auth/google">
-            <img src="btn_google_signin_light_normal_web@2x.png"
-              style={{width: '200px'}}
-            />
-          </a>
+          <SignIn />
         </Modal>
       </div>
       </div>
