@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-
 
 class NavBar extends React.Component {
   constructor(props) {

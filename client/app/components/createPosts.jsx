@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import UploadImage from './uploadImage.jsx';
 
 const devStyle = {
   border: '1px solid black',
@@ -83,7 +84,7 @@ class PostingPage extends React.Component {
             </form>
             <form>
               <footer className="screen-login">
-                <input type="file" name="pic" accept="image/*"></input>
+                <UploadImage />
               </footer>
               <hr></hr>
               <button className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
