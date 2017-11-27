@@ -7,6 +7,7 @@ import PostingPage from './components/createPosts.jsx';
 import FullPost from './components/fullPost.jsx';
 import PostPreviewList from './components/PostPreviewList.jsx';
 import PostPreview from './components/postPreview.jsx';
+import SignIn from './components/signIn.jsx';
 
 
 class App extends React.Component {
@@ -17,7 +18,8 @@ class App extends React.Component {
       view: 'home',
       fullPost: [],
       filteredItems: [],
-      filtered: false
+      filtered: false,
+      user: {}
     };
     this.search = this.search.bind(this);
     this.loadHome = this.loadHome.bind(this);
@@ -26,7 +28,7 @@ class App extends React.Component {
     this.isFiltered = this.isFiltered.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadHome();
     this.setState({
       view: 'home',
@@ -37,7 +39,7 @@ class App extends React.Component {
   loadHome() {
     axios.get('/home')
       .then(response => this.setState(
-        { frontPosts: response.data },
+        { frontPosts: response.data.posts, user: response.data.user },
         () => console.log('Home page loaded!', this.state.frontPosts)
       ));
   }
@@ -63,6 +65,7 @@ class App extends React.Component {
   }
 
   renderView() {
+    console.log('Current user is: ', this.state.user);
     const {view} = this.state;
 
     if (view === 'home') {
@@ -73,7 +76,12 @@ class App extends React.Component {
         filteredItems={this.state.filteredItems}
         filtered={this.state.filtered} />;
     } else if (view === 'create') {
-      return <PostingPage />;
+      if (this.state.user.google_id) {
+        return <PostingPage user={this.state.user}/>;
+      } else {
+        return <SignIn />;
+      }
+
     } else if (view === 'post') {
       return <FullPost fullPost={this.state.fullPost} />;
     }
@@ -89,6 +97,7 @@ class App extends React.Component {
     return (
       <div>
         <NavBar
+          user={this.state.user}
           search={this.search}
           changeView={this.changeView}
           isFiltered={this.isFiltered} />
